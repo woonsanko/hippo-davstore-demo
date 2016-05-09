@@ -61,6 +61,7 @@
   <properties>
 
     <!--***START temporary override of versions*** -->
+    <hippo.cms.version>3.2.1</hippo.cms.version>
     <!-- ***END temporary override of versions*** -->
 
     <essentials.version>2.2.0</essentials.version>
@@ -327,6 +328,7 @@
               </deployables>
               <container>
                 <systemProperties>
+                  <repo.config>file://${project.basedir}/conf/repository.xml</repo.config>
                   <derby.stream.error.file>${project.basedir}/target/derby.log</derby.stream.error.file>
                   <log4j.configuration>file:${project.basedir}/conf/log4j-dev.xml</log4j.configuration>
                   <rebel.log4j-plugin>true</rebel.log4j-plugin>
