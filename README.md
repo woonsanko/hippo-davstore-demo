@@ -1,5 +1,6 @@
 # hippo-davstore-demo
-Hippo CMS Demo using Jackrabbit VFSDataStore against WebDAV server as a binary content storage.
+
+Hippo CMS Demo using Jackrabbit VFSDataStore against either **WebDAV server** or **SFTP server** as a binary content storage.
 
 Jackrabbit VFSDataStore is using Commons VFS 2.0 at the moment to get access to various backend storages such as local file system, WebDAV, SFTP, HDFS, etc.
 
@@ -37,6 +38,17 @@ If you installed it, you could move to ```wsgidav``` subfolder and run the follo
 The above command will start WebDAV server at port 8888 [http://localhost:8888](http://localhost:8888)
 with the root directory at ```wsgidav/davshare```.
 
+## Using an SFTP server instead of WebDAV server
+
+Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
+
+```xml
+                  <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
+                  <!--
+                  <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
+                  -->
+```
+
 ## Run the Demo Project
 
 This project uses the Maven Cargo plugin to run CMS ("Content Authoring") and SITE ("Content Delivery") web applications locally in Tomcat.
@@ -51,18 +63,30 @@ If you take a look at the terminal of the WsgiDAV server, then you can already s
 
 ## Repository Configuration
 
-Repository configuration is located at [repository.xml](conf/repository.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
+Repository configuration is located at the following:
+
+- VFS2/WebDAV : [repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
 
 ```xml
           <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <!-- VFSDataStore specific parameters -->
             <param name="baseFolderUri" value="webdav://tester:secret@localhost:8888/vfsds" />
             <param name="asyncWritePoolSize" value="10" />
             <param name="fileSystemOptionsPropertiesInString"
                    value="fso.http.maxTotalConnections = 200&#13;
                           fso.http.maxConnectionsPerHost = 200&#13;
                           fso.http.preemptiveAuth = false" />
-            <!-- CachingDataStore specific parameters -->
+            <param name="secret" value="123456789"/>
+          </DataStore>
+```
+
+- VFS2/SFTP : [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
+
+```xml
+          <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
+            <param name="baseFolderUri" value="sftp://tester:tester@localhost/vfsds" />
+            <param name="asyncWritePoolSize" value="10" />
+            <param name="fileSystemOptionsPropertiesInString"
+                   value="" />
             <param name="secret" value="123456789"/>
           </DataStore>
 ```

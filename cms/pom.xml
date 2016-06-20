@@ -13,6 +13,7 @@
   <description>Hippo WebDAV VFS DataStore Demo Project CMS</description>
   <dependencies>
 
+    <!-- Adding VFS2 based DataStore -->
     <dependency>
       <groupId>org.apache.jackrabbit</groupId>
       <artifactId>jackrabbit-vfs-ext</artifactId>
@@ -27,6 +28,12 @@
           <artifactId>jackrabbit-data</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <!-- Enabling SFTP VFS2 File System -->
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.53</version>
     </dependency>
 
     <dependency>
