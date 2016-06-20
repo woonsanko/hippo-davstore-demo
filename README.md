@@ -22,7 +22,7 @@ From the project root folder, execute:
 
         mvn clean package
 
-## Install and Run an example WebDAV server
+## Option 1: Install and Run an example WebDAV server
 
 In this demo project, I used [WsgiDAV](https://github.com/mar10/wsgidav) server as WebDAV backend server.
 
@@ -38,7 +38,7 @@ If you installed it, you could move to ```wsgidav``` subfolder and run the follo
 The above command will start WebDAV server at port 8888 [http://localhost:8888](http://localhost:8888)
 with the root directory at ```wsgidav/davshare```.
 
-## Using an SFTP server instead of WebDAV server
+## Option 2: Using an SFTP server instead of WebDAV server
 
 Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
 
@@ -47,6 +47,15 @@ Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element a
                   <!--
                   <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
                   -->
+```
+
+And, open [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the SFTP server URL:
+
+```xml
+          <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
+            <param name="baseFolderUri" value="sftp://tester:tester@localhost/vfsds" />
+            <!-- SNIP -->
+          </DataStore>
 ```
 
 ## Run the Demo Project
