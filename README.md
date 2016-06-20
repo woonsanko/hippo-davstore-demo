@@ -106,8 +106,8 @@ Repository configuration is located at the following:
 
 - Visit http://localhost:8080/site/news.
 - Click on a new article link.
-- The photo inside the article was retrieved from the backend WebDAV server through ```VFSDataStore``` component.
-- You can see some logs in the WsgiDAV server.
+- The photo inside the article was retrieved from the backend (WebDAV or SFTP) server through ```VFSDataStore``` component.
+- You can see some logs in the WsgiDAV server when it's used.
 
 ### Visit CMS ("Content Authoring") to upload binary images / assets (e.g, pdfs)
 
@@ -117,4 +117,4 @@ Repository configuration is located at the following:
 - Select "Image" or "Asset" in the dropdown located near the left top corner.
 - Click or create folder and try to upload image files or asset (e.g, pdfs) files.
 - Tip: you need to hover your mouse on a tree node to find/click on action buttons.
-- You can see some logs in the WsgiDAV server as well.
+- You can see some logs in the WsgiDAV server as well when it's used.
