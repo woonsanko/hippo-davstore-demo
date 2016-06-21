@@ -300,6 +300,16 @@
                     <todir>conf/</todir>
                     <tofile>logging.properties</tofile>
                   </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/vfs2-datastore-webdav.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>vfs2-datastore-webdav.properties</tofile>
+                  </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/vfs2-datastore-sftp.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>vfs2-datastore-sftp.properties</tofile>
+                  </configfile>
                 </configfiles>
               </configuration>
               <deployables>
