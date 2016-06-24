@@ -63,7 +63,7 @@ And, open [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the
 This project uses the Maven Cargo plugin to run CMS ("Content Authoring") and SITE ("Content Delivery") web applications locally in Tomcat.
 From the project root folder, execute:
 
-        mvn -P cargo.run
+        mvn -P cargo.run -Drepo.path=storage
 
 After your project is set up, access the CMS at http://localhost:8080/cms/ and the site at http://localhost:8080/site/.
 Logs are located in target/tomcat7x/logs
