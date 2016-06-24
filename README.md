@@ -88,6 +88,8 @@ Repository configuration is located at the following:
           </DataStore>
 ```
 
+Note: you may externalize some sensitive parameters such as ```baseFolderUri``` to an external configuration files like done in [https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-webdav-file-system](https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-webdav-file-system).
+
 - VFS2/SFTP : [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
 
 ```xml
@@ -99,6 +101,8 @@ Repository configuration is located at the following:
             <param name="secret" value="123456789"/>
           </DataStore>
 ```
+
+Note: you may externalize some sensitive parameters such as ```baseFolderUri``` to an external configuration files like done in [https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-sftp-file-system](https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-sftp-file-system).
 
 ## Test Scenarios
 
