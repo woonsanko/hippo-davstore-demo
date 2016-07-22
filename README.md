@@ -150,7 +150,7 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
 - Tip: you need to hover your mouse on a tree node to find/click on action buttons.
 - You can see some logs in the WsgiDAV server as well when it's used.
 
-### (Optional) Discovering Content Identity through CMS Console (http://localhost:8080/cms/console/)
+### (Optional) Discovering Content Identity through CMS Console
 
 - Visit http://localhost:8080/cms/console/
 - Log on by admin/admin
