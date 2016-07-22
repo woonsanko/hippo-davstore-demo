@@ -149,3 +149,11 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
 - Click or create folder and try to upload image files or asset (e.g, pdfs) files.
 - Tip: you need to hover your mouse on a tree node to find/click on action buttons.
 - You can see some logs in the WsgiDAV server as well when it's used.
+
+### (Optional) Discovering Content Identity through CMS Console (http://localhost:8080/cms/console/)
+
+- Visit http://localhost:8080/cms/console/
+- Log on by admin/admin
+- Find any binary property (under gallery or asset) which contains data bigger than 16KB (by default, a CachingDataStore stores binary only when the data is bigger than 16KB).
+- You will be able to find "Content Identity" next to the "Upload" button.
+- You can even figure out where the real binary file is stored in the backend (e.g, WebDAV, SFTP, etc.) by the "Content Identity" value.
