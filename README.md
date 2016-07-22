@@ -78,31 +78,67 @@ Repository configuration is located at the following:
 
 ```xml
           <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="baseFolderUri" value="webdav://tester:secret@localhost:8888/vfsds" />
+            <param name="config" value="${catalina.base}/conf/vfs2-datastore-webdav.properties" />
+            <!-- VFSDataStore specific parameters -->
             <param name="asyncWritePoolSize" value="10" />
-            <param name="fileSystemOptionsPropertiesInString"
-                   value="fso.http.maxTotalConnections = 200&#13;
-                          fso.http.maxConnectionsPerHost = 200&#13;
-                          fso.http.preemptiveAuth = false" />
+            <!--
+              CachingDataStore specific parameters:
+                - secret : key to generate a secure reference to a binary.
+            -->
             <param name="secret" value="123456789"/>
+            <!--
+              Other important CachingDataStore parameters with default values, just for information:
+                - path : local cache directory path. ${rep.home}/repository/datastore by default.
+                - cacheSize : The number of bytes in the cache. 64GB by default.
+                - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
+            -->
           </DataStore>
 ```
 
-Note: you may externalize some sensitive parameters such as ```baseFolderUri``` to an external configuration files like done in [https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-webdav-file-system](https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-webdav-file-system).
+You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2-datastore-webdav.properties```) like the following:
+
+```
+        baseFolderUri = webdav://tester:secret@localhost:8888/vfsds
+        
+        # Properties to build org.apache.commons.vfs2.FileSystemOptions at runtime when resolving the base folder.
+        # Any properties, name of which is starting with 'fso.', are used to build FileSystemOptions
+        # after removing the 'fso.' prefix. See VFS2 documentation for the detail.
+        fso.http.maxTotalConnections = 200
+        fso.http.maxConnectionsPerHost = 200
+        fso.http.preemptiveAuth = false
+```
 
 - VFS2/SFTP : [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
 
 ```xml
           <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="baseFolderUri" value="sftp://tester:secret@localhost/vfsds" />
+            <param name="config" value="${catalina.base}/conf/vfs2-datastore-sftp.properties" />
+            <!-- VFSDataStore specific parameters -->
             <param name="asyncWritePoolSize" value="10" />
-            <param name="fileSystemOptionsPropertiesInString"
-                   value="" />
+            <!--
+              CachingDataStore specific parameters:
+                - secret : key to generate a secure reference to a binary.
+            -->
             <param name="secret" value="123456789"/>
+            <!--
+              Other important CachingDataStore parameters with default values, just for information:
+                - path : local cache directory path. ${rep.home}/repository/datastore by default.
+                - cacheSize : The number of bytes in the cache. 64GB by default.
+                - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
+            -->
           </DataStore>
 ```
 
-Note: you may externalize some sensitive parameters such as ```baseFolderUri``` to an external configuration files like done in [https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-sftp-file-system](https://github.com/woonsan/jackrabbit/tree/feature/vfs-datastore/jackrabbit-vfs-ext#with-sftp-file-system).
+You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2-datastore-sftp.properties```) like the following:
+
+```
+        baseFolderUri = sftp://tester:secret@localhost/vfsds
+        
+        # Properties to build org.apache.commons.vfs2.FileSystemOptions at runtime when resolving the base folder.
+        # Any properties, name of which is starting with 'fso.', are used to build FileSystemOptions
+        # after removing the 'fso.' prefix. See VFS2 documentation for the detail.
+```
+
 
 ## Test Scenarios
 
