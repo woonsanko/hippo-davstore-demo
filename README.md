@@ -53,7 +53,7 @@ And, open [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the
 
 ```xml
           <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="baseFolderUri" value="sftp://tester:tester@localhost/vfsds" />
+            <param name="baseFolderUri" value="sftp://tester:secret@localhost/vfsds" />
             <!-- SNIP -->
           </DataStore>
 ```
@@ -94,7 +94,7 @@ Note: you may externalize some sensitive parameters such as ```baseFolderUri``` 
 
 ```xml
           <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="baseFolderUri" value="sftp://tester:tester@localhost/vfsds" />
+            <param name="baseFolderUri" value="sftp://tester:secret@localhost/vfsds" />
             <param name="asyncWritePoolSize" value="10" />
             <param name="fileSystemOptionsPropertiesInString"
                    value="" />
