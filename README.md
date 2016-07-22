@@ -49,15 +49,6 @@ Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element a
                   -->
 ```
 
-And, open [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the SFTP server URL:
-
-```xml
-          <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="baseFolderUri" value="sftp://tester:secret@localhost/vfsds" />
-            <!-- SNIP -->
-          </DataStore>
-```
-
 ## Run the Demo Project
 
 This project uses the Maven Cargo plugin to run CMS ("Content Authoring") and SITE ("Content Delivery") web applications locally in Tomcat.
