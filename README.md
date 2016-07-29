@@ -155,5 +155,6 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
 - Visit http://localhost:8080/cms/console/
 - Log on by admin/admin
 - Find any binary property (under gallery or asset) which contains data bigger than 16KB (by default, a CachingDataStore stores binary only when the data is bigger than 16KB).
-- You will be able to find "Content Identity" next to the "Upload" button.
+- You will be able to find "Content Identity: (Show)" next to the "Upload" button. Click on "(Show)" link to retrieve the content identity.
 - You can even figure out where the real binary file is stored in the backend (e.g, WebDAV, SFTP, etc.) by the "Content Identity" value.
+
