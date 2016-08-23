@@ -63,7 +63,7 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <jackrabbit-vfs-ext.version>2.13.2-SNAPSHOT</jackrabbit-vfs-ext.version>
+    <jackrabbit-vfs-ext.version>2.13.2</jackrabbit-vfs-ext.version>
     <com.jcraft.jsch.version>0.1.53</com.jcraft.jsch.version>
 
     <essentials.version>2.2.0</essentials.version>
