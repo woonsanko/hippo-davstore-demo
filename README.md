@@ -1,26 +1,17 @@
 # hippo-davstore-demo
 
-Hippo CMS Demo using Jackrabbit VFSDataStore against either **WebDAV server** or **SFTP server** as a binary content storage.
+Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **WebDAV server** or **SFTP server** as a binary content storage.
 
-Jackrabbit VFSDataStore is using Commons VFS 2 to get access to various backend storages such as local file system, WebDAV, SFTP, HDFS, etc.
-
-Jackrabbit VFSDataStore was not merged into Apache Jackrabbit master branch, so you need to clone my feature branch, ```feature/vfs-datastore```,
-from [https://github.com/woonsan/jackrabbit.git](https://github.com/woonsan/jackrabbit.git) and build/install it to make this demo run.
-
-## Clone and Install VFSDataStore feature branch
-
-You can clone my feature branch like the following:
-
-        git clone -b feature/vfs-datastore https://github.com/woonsan/jackrabbit.git
-        cd jackrabbit
-        mvn clean install -DskipTests
+Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, WebDAV, SFTP, HDFS, etc.
 
 ## Build the Demo Project
 
 This project uses the Maven to build.
 From the project root folder, execute:
 
-        mvn clean package
+        mvn clean verify
+
+And, enable either WebDAV server (Option 1) or SFTP server (option 2) as explained below.
 
 ## Option 1: Install and Run an example WebDAV server
 
@@ -38,7 +29,7 @@ If you installed it, you could move to ```wsgidav``` subfolder and run the follo
 The above command will start WebDAV server at port 8888 [http://localhost:8888](http://localhost:8888)
 with the root directory at ```wsgidav/davshare```.
 
-## Option 2: Using an SFTP server instead of WebDAV server
+## Option 2: Using an SFTP server
 
 Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
 
