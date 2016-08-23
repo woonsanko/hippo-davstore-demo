@@ -4,6 +4,10 @@ Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **WebDAV serve
 
 Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, WebDAV, SFTP, HDFS, etc.
 
+## Adding dependencies to use Jackrabbit ```VFSDataStore```
+
+Please see [highlighted dependencies in cms/pom.xml](cms/pom.xml#L16-L37). Basically you need to include ```jackrabbit-vfs-ext``` jar dependency and other VFS2 backend dependencies optionally in your project.
+
 ## Build the Demo Project
 
 This project uses the Maven to build.
@@ -34,10 +38,10 @@ with the root directory at ```wsgidav/davshare```.
 Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
 
 ```xml
-                  <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
-                  <!--
-                  <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
-                  -->
+          <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
+          <!--
+          <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
+          -->
 ```
 
 ## Run the Demo Project
