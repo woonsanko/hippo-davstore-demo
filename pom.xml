@@ -341,7 +341,6 @@
               <container>
                 <systemProperties>
 
-
                   <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
                   <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
                   <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
