@@ -89,6 +89,7 @@ Repository configuration is located at the following:
                 - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
                 - touchAsync : Flag to indicate if lastModified is updated asynchronously.
             -->
+            <param name="minRecordLength" value="1024"/>
             <param name="recLengthCacheSize" value="10000" />
             <param name="touchAsync" value="true" />
           </DataStore>
@@ -127,6 +128,7 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
                 - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
                 - touchAsync : Flag to indicate if lastModified is updated asynchronously.
             -->
+            <param name="minRecordLength" value="1024"/>
             <param name="recLengthCacheSize" value="10000" />
             <param name="touchAsync" value="true" />
           </DataStore>
