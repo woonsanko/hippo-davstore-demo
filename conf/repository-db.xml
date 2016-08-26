@@ -21,25 +21,12 @@
     <param name="path" value="${rep.home}/repository"/>
   </FileSystem>
 
-  <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-    <param name="config" value="${catalina.base}/conf/vfs2-datastore-webdav.properties" />
-    <!-- VFSDataStore specific parameters -->
-    <param name="asyncWritePoolSize" value="10" />
-    <!--
-      CachingDataStore specific parameters:
-        - secret : key to generate a secure reference to a binary.
-    -->
-    <param name="secret" value="123456789"/>
-    <!--
-      Other important CachingDataStore parameters with default values, just for information:
-        - path : local cache directory path. ${rep.home}/repository/datastore by default.
-        - cacheSize : The number of bytes in the cache. 64GB by default.
-        - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
-        - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
-        - touchAsync : Flag to indicate if lastModified is updated asynchronously.
-    -->
-    <param name="recLengthCacheSize" value="10000" />
-    <param name="touchAsync" value="true" />
+  <DataStore class="org.apache.jackrabbit.core.data.db.DbDataStore">
+    <param name="url" value="jdbc:h2:file:${rep.home}/datastore/db"/>
+    <param name="databaseType" value="h2"/>
+    <param name="driver" value="org.h2.Driver"/>
+    <param name="minRecordLength" value="1024"/>
+    <param name="copyWhenReading" value="true"/>
   </DataStore>
 
   <Security appName="Jackrabbit">

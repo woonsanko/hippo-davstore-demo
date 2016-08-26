@@ -38,10 +38,19 @@ with the root directory at ```wsgidav/davshare```.
 Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
 
 ```xml
-          <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
-          <!--
-          <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
-          -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
+              <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
+              <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
+```
+
+## Option 3: Using the Database DataStore (the default option in Hippo) instead of VFS DataStore
+
+Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
+
+```xml
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
+              <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config>
 ```
 
 ## Run the Demo Project
@@ -77,7 +86,11 @@ Repository configuration is located at the following:
                 - path : local cache directory path. ${rep.home}/repository/datastore by default.
                 - cacheSize : The number of bytes in the cache. 64GB by default.
                 - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
+                - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
+                - touchAsync : Flag to indicate if lastModified is updated asynchronously.
             -->
+            <param name="recLengthCacheSize" value="10000" />
+            <param name="touchAsync" value="true" />
           </DataStore>
 ```
 
@@ -111,7 +124,11 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
                 - path : local cache directory path. ${rep.home}/repository/datastore by default.
                 - cacheSize : The number of bytes in the cache. 64GB by default.
                 - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
+                - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
+                - touchAsync : Flag to indicate if lastModified is updated asynchronously.
             -->
+            <param name="recLengthCacheSize" value="10000" />
+            <param name="touchAsync" value="true" />
           </DataStore>
 ```
 
