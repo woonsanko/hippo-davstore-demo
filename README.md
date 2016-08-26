@@ -52,7 +52,7 @@ From the project root folder, execute:
         mvn -P cargo.run -Drepo.path=storage
 
 After your project is set up, access the CMS at http://localhost:8080/cms/ and the site at http://localhost:8080/site/.
-Logs are located in target/tomcat7x/logs
+Logs are located in target/tomcat8x/logs
 
 If you take a look at the terminal of the WsgiDAV server, then you can already see many logs about content uploading. This is because Hippo Repository bootstraps some example binary content to the repository storage during the initialization.
 
