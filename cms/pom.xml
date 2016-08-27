@@ -13,7 +13,7 @@
   <description>Hippo WebDAV VFS DataStore Demo Project CMS</description>
   <dependencies>
 
-    <!-- Adding VFS2 based DataStore -->
+    <!-- Adding jackrabbit-vfs-ext -->
     <dependency>
       <groupId>org.apache.jackrabbit</groupId>
       <artifactId>jackrabbit-vfs-ext</artifactId>
@@ -22,11 +22,11 @@
       <exclusions>
         <exclusion>
           <groupId>org.apache.jackrabbit</groupId>
-          <artifactId>jackrabbit-jcr-commons</artifactId>
+          <artifactId>jackrabbit-api</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.apache.jackrabbit</groupId>
-          <artifactId>jackrabbit-data</artifactId>
+          <artifactId>jackrabbit-jcr-commons</artifactId>
         </exclusion>
       </exclusions>
     </dependency>

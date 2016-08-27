@@ -36,11 +36,9 @@
         - cacheSize : The number of bytes in the cache. 64GB by default.
         - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
         - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
-        - touchAsync : Flag to indicate if lastModified is updated asynchronously.
     -->
     <param name="minRecordLength" value="1024"/>
     <param name="recLengthCacheSize" value="10000" />
-    <param name="touchAsync" value="true" />
   </DataStore>
 
   <Security appName="Jackrabbit">
