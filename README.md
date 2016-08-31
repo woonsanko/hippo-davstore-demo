@@ -3,6 +3,8 @@
 Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **WebDAV server** or **SFTP server** as a binary content storage.
 
 Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, WebDAV, SFTP, HDFS, etc.
+For more details, please read my blog post:
+- http://woonsanko.blogspot.com/2016/08/cant-we-store-huge-amount-of-binary.html
 
 ## Adding dependencies to use Jackrabbit ```VFSDataStore```
 
