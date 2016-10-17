@@ -82,7 +82,7 @@ Repository configuration is located at the following:
               CachingDataStore specific parameters:
                 - secret : key to generate a secure reference to a binary.
             -->
-            <param name="secret" value="123456789"/>
+            <param name="secret" value="123456"/>
             <!--
               Other important CachingDataStore parameters with default values, just for information:
                 - path : local cache directory path. ${rep.home}/repository/datastore by default.
@@ -119,7 +119,7 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
               CachingDataStore specific parameters:
                 - secret : key to generate a secure reference to a binary.
             -->
-            <param name="secret" value="123456789"/>
+            <param name="secret" value="123456"/>
             <!--
               Other important CachingDataStore parameters with default values, just for information:
                 - path : local cache directory path. ${rep.home}/repository/datastore by default.
