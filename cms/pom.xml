@@ -37,6 +37,13 @@
       <version>${com.jcraft.jsch.version}</version>
     </dependency>
 
+    <!-- Enabling WebDAV VFS2 File System -->
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-webdav</artifactId>
+      <version>${jackrabbit-webdav.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.onehippo.cms7.hst.dependencies</groupId>
       <artifactId>hst-repository-dependencies</artifactId>
