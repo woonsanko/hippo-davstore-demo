@@ -28,7 +28,8 @@ Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the
 
 ### Option 2: Install and Run an example WebDAV server
 
-If you want to use a WebDAV server as backend, open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
+If you want to use a WebDAV server as backend, open [pom.xml](pom.xml), uncomment the second ```<repo.config>``` element
+and comment out the others:
 
 ```xml
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
@@ -54,7 +55,8 @@ Open [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml) and edit
 
 ### Option 3: Using the Database DataStore (the default option in Hippo) instead of VFS DataStore
 
-Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
+If you want to use the default Database DataStore, open [pom.xml](pom.xml), uncomment the third ```<repo.config>``` element
+and comment out the others:
 
 ```xml
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
