@@ -8,16 +8,11 @@ For more details, please read my blog post:
 
 ## Adding dependencies to use Jackrabbit ```VFSDataStore```
 
-Please see [highlighted dependencies in cms/pom.xml](cms/pom.xml#L16-L37). Basically you need to include ```jackrabbit-vfs-ext``` jar dependency and other VFS2 backend dependencies optionally in your project.
+Please see [highlighted dependencies in cms/pom.xml](cms/pom.xml#L17-L45). Basically you need to include ```jackrabbit-vfs-ext``` jar dependency and other VFS2 backend dependencies optionally in your project.
 
-## Build the Demo Project
+## VFS Backend Test Options: WebDAV or SFTP
 
-This project uses the Maven to build.
-From the project root folder, execute:
-
-        mvn clean verify
-
-And, enable either WebDAV server (Option 1) or SFTP server (option 2) as explained below.
+Enable either WebDAV server (Option 1) or SFTP server (option 2) as explained below.
 
 ## Option 1: Install and Run an example WebDAV server
 
@@ -60,7 +55,9 @@ Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element a
 This project uses the Maven Cargo plugin to run CMS ("Content Authoring") and SITE ("Content Delivery") web applications locally in Tomcat.
 From the project root folder, execute:
 
-        mvn -P cargo.run -Drepo.path=storage
+        mvn clean verify && mvn -P cargo.run
+
+The default Jackrabbit repository directory is located at ```target/storage```.
 
 After your project is set up, access the CMS at http://localhost:8080/cms/ and the site at http://localhost:8080/site/.
 Logs are located in target/tomcat8x/logs
@@ -153,7 +150,7 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
 - Visit http://localhost:8080/site/news.
 - Click on a new article link.
 - The photo inside the article was retrieved from the backend (WebDAV or SFTP) server through ```VFSDataStore``` component.
-- You can see some logs in the WsgiDAV server when it's used.
+- You can see some logs in the WsgiDAV server if it's used.
 
 ### Visit CMS ("Content Authoring") to upload binary images / assets (e.g, pdfs)
 
@@ -161,15 +158,14 @@ You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2
 - Log on by admin/admin
 - Click on the "Content" perspective.
 - Select "Image" or "Asset" in the dropdown located near the left top corner.
-- Click or create folder and try to upload image files or asset (e.g, pdfs) files.
-- Tip: you need to hover your mouse on a tree node to find/click on action buttons.
-- You can see some logs in the WsgiDAV server as well when it's used.
+- Click or create a folder and try to upload image files or asset (e.g, PDF) files.
+- Tip: you need to hover your mouse on a tree node to find and click on the action buttons.
+- You can see some logs in the WsgiDAV server as well if it's used.
 
 ### (Optional) Discovering Content Identity through CMS Console
 
 - Visit http://localhost:8080/cms/console/
 - Log on by admin/admin
-- Find any binary property (under gallery or asset) which contains data bigger than 16KB (by default, a CachingDataStore stores binary only when the data is bigger than 16KB).
+- Find any binary property (under gallery or asset) which contains data bigger than 16KB (by default, a ```CachingDataStore``` stores binary only when the data is bigger than 16KB).
 - You will be able to find "Content Identity: (Show)" next to the "Upload" button. Click on "(Show)" link to retrieve the content identity.
-- You can even figure out where the real binary file is stored in the backend (e.g, WebDAV, SFTP, etc.) by the "Content Identity" value.
-
+- You can possibly figure out where the real binary file is stored in the backend (WebDAV or SFTP) by the "Content Identity" value.
