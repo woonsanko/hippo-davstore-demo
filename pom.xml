@@ -63,6 +63,10 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
+    <jackrabbit-vfs-ext.version>2.16.3</jackrabbit-vfs-ext.version>
+    <com.jcraft.jsch.version>0.1.54</com.jcraft.jsch.version>
+    <jackrabbit-webdav.version>2.16.3</jackrabbit-webdav.version>
+
     <essentials.version>4.4.0-1</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
@@ -277,6 +281,11 @@
               </deployables>
               <container>
                 <systemProperties>
+
+                  <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config>
+                  <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
+                  <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
+
                   <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
                   <project.basedir>${project.basedir}</project.basedir>

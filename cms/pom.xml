@@ -11,7 +11,39 @@
   <packaging>war</packaging>
   <name>Hippo DAV VFS DataStore Demo Project CMS</name>
   <description>Hippo DAV VFS DataStore Demo Project CMS</description>
+
   <dependencies>
+
+    <!-- Adding jackrabbit-vfs-ext -->
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-vfs-ext</artifactId>
+      <version>${jackrabbit-vfs-ext.version}</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.jackrabbit</groupId>
+          <artifactId>jackrabbit-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.jackrabbit</groupId>
+          <artifactId>jackrabbit-jcr-commons</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- Enabling SFTP VFS2 File System -->
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>${com.jcraft.jsch.version}</version>
+    </dependency>
+    <!-- Enabling WebDAV VFS2 File System -->
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-webdav</artifactId>
+      <version>${jackrabbit-webdav.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.onehippo.cms7.hst.dependencies</groupId>
       <artifactId>hst-repository-dependencies</artifactId>

@@ -21,26 +21,6 @@
     <param name="path" value="${rep.home}/repository"/>
   </FileSystem>
 
-  <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-    <param name="config" value="${catalina.base}/conf/vfs2-datastore-sftp.properties" />
-    <!-- VFSDataStore specific parameters -->
-    <param name="asyncWritePoolSize" value="10" />
-    <!--
-      CachingDataStore specific parameters:
-        - secret : key to generate a secure reference to a binary.
-    -->
-    <param name="secret" value="123456"/>
-    <!--
-      Other important CachingDataStore parameters with default values, just for information:
-        - path : local cache directory path. ${rep.home}/repository/datastore by default.
-        - cacheSize : The number of bytes in the cache. 64GB by default.
-        - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
-        - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
-    -->
-    <param name="minRecordLength" value="1024"/>
-    <param name="recLengthCacheSize" value="10000" />
-  </DataStore>
-
   <Security appName="Jackrabbit">
     <SecurityManager class="org.hippoecm.repository.security.SecurityManager"/>
     <AccessManager class="org.hippoecm.repository.security.HippoAccessManager"/>
@@ -111,5 +91,34 @@
 
     <ISMLocking class="org.apache.jackrabbit.core.state.FineGrainedISMLocking"/>
   </Versioning>
+
+  <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
+    <param name="config" value="${catalina.base}/conf/vfs2-datastore-sftp.properties" />
+    <!-- VFSDataStore specific parameters -->
+    <param name="asyncWritePoolSize" value="10" />
+    <!--
+      CachingDataStore specific parameters:
+        - secret : key to generate a secure reference to a binary.
+    -->
+    <param name="secret" value="123456"/>
+    <!--
+      Other important CachingDataStore parameters with default values, just for information:
+        - path : local cache directory path. ${rep.home}/repository/datastore by default.
+        - cacheSize : The number of bytes in the cache. 64GB by default.
+        - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
+        - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
+    -->
+    <param name="minRecordLength" value="1024"/>
+    <param name="recLengthCacheSize" value="10000" />
+  </DataStore>
+
+  <Cluster>
+    <Journal class="org.apache.jackrabbit.core.journal.DatabaseJournal">
+      <param name="driver" value="org.h2.Driver" />
+      <param name="url" value="jdbc:h2:${rep.home}/datastore/db"/>
+      <param name="schemaObjectPrefix" value="repository_"/>
+      <param name="databaseType" value="h2"/>
+    </Journal>
+  </Cluster>
 
 </Repository>

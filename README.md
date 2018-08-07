@@ -24,8 +24,8 @@ And, enable either WebDAV server (Option 1) or SFTP server (option 2) as explain
 In this demo project, I used [WsgiDAV](https://github.com/mar10/wsgidav) server as WebDAV backend server.
 
 You can install/configure it following this page:
-- [http://wsgidav.readthedocs.io/en/latest/run-install.html](http://wsgidav.readthedocs.io/en/latest/run-install.html)
-- [http://wsgidav.readthedocs.io/en/latest/run-configure.html](http://wsgidav.readthedocs.io/en/latest/run-configure.html)
+- [http://wsgidav.readthedocs.io/en/latest/installation.html](http://wsgidav.readthedocs.io/en/latest/installation.html)
+- [http://wsgidav.readthedocs.io/en/latest/user_guide_configure.html](http://wsgidav.readthedocs.io/en/latest/user_guide_configure.html)
 
 If you installed it, you could move to ```wsgidav``` subfolder and run the following to make this demo run:
 
