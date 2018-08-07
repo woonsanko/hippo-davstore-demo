@@ -1,0 +1,120 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:types/hippodavstoredemo:bannerdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Content
+        hippodavstoredemo:image: Image
+        hippodavstoredemo:link: Link
+        hippodavstoredemo:title: Title
+        jcr:name: Banner
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Inhoud
+        hippodavstoredemo:image: Afbeelding
+        hippodavstoredemo:link: Link
+        hippodavstoredemo:title: Titel
+        jcr:name: Banner
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Contenu
+        hippodavstoredemo:image: Image
+        hippodavstoredemo:link: Lien
+        hippodavstoredemo:title: Titre
+        jcr:name: Bannière
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Inhalt
+        hippodavstoredemo:image: Abbildung
+        hippodavstoredemo:link: Link
+        hippodavstoredemo:title: Titel
+        jcr:name: Banner
+    /hippo:configuration/hippo:translations/hippo:types/hippodavstoredemo:eventsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Content
+        hippodavstoredemo:date: Start date
+        hippodavstoredemo:enddate: End date
+        hippodavstoredemo:image: Image
+        hippodavstoredemo:introduction: Introduction
+        hippodavstoredemo:location: Location
+        hippodavstoredemo:title: Title
+        jcr:name: Event
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Inhoud
+        hippodavstoredemo:date: Startdatum
+        hippodavstoredemo:enddate: Einddatum
+        hippodavstoredemo:image: Afbeelding
+        hippodavstoredemo:introduction: Introductie
+        hippodavstoredemo:location: Locatie
+        hippodavstoredemo:title: Titel
+        jcr:name: Evenement
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Contenu
+        hippodavstoredemo:date: Date de début
+        hippodavstoredemo:enddate: Date de fin
+        hippodavstoredemo:image: Image
+        hippodavstoredemo:introduction: Introduction
+        hippodavstoredemo:location: Lieu
+        hippodavstoredemo:title: Titre
+        jcr:name: Événement
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:content: Inhalt
+        hippodavstoredemo:date: Startdatum
+        hippodavstoredemo:enddate: Enddatum
+        hippodavstoredemo:image: Abbildung
+        hippodavstoredemo:introduction: Einführung
+        hippodavstoredemo:location: Standort
+        hippodavstoredemo:title: Titel
+        jcr:name: Event
+    /hippo:configuration/hippo:translations/hippo:types/hippodavstoredemo:newsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:author: Author
+        hippodavstoredemo:content: Content
+        hippodavstoredemo:date: Date
+        hippodavstoredemo:image: Image
+        hippodavstoredemo:introduction: Introduction
+        hippodavstoredemo:location: Location
+        hippodavstoredemo:source: Source
+        hippodavstoredemo:title: Title
+        jcr:name: News Item
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:author: Auteur
+        hippodavstoredemo:content: Inhoud
+        hippodavstoredemo:date: Datum
+        hippodavstoredemo:image: Afbeelding
+        hippodavstoredemo:introduction: Introductie
+        hippodavstoredemo:location: Locatie
+        hippodavstoredemo:source: Bron
+        hippodavstoredemo:title: Titel
+        jcr:name: Nieuwsbericht
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:author: Verfasser
+        hippodavstoredemo:content: Inhalt
+        hippodavstoredemo:date: Datum
+        hippodavstoredemo:image: Abbildung
+        hippodavstoredemo:introduction: Einführung
+        hippodavstoredemo:location: Standort
+        hippodavstoredemo:source: Quelle
+        hippodavstoredemo:title: Titel
+        jcr:name: News
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        hippodavstoredemo:author: Auteur
+        hippodavstoredemo:content: Contenu
+        hippodavstoredemo:date: Date
+        hippodavstoredemo:image: Image
+        hippodavstoredemo:introduction: Introduction
+        hippodavstoredemo:location: Lieu
+        hippodavstoredemo:source: Source
+        hippodavstoredemo:title: Titre
+        jcr:name: Message d'info

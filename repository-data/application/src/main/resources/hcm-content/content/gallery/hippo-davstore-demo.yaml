@@ -1,0 +1,7 @@
+/content/gallery/hippodavstoredemo:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 6a3a88f5-6e99-4323-ad9a-ca661ca50514
+  hippo:name: Hippo DAV VFS DataStore Demo Project
+  hippostd:foldertype: [new-image-folder]
+  hippostd:gallerytype: ['hippogallery:imageset']

@@ -1,0 +1,9 @@
+/content/documents/hippodavstoredemo:
+  .meta:order-before: administration
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:referenceable']
+  jcr:uuid: c827956d-5690-4438-b0d7-4fd542b5101b
+  hippo:name: Hippo DAV VFS DataStore Demo Project
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 996bcac5-86cf-49b5-a7a3-16a74863e814
+  hippotranslation:locale: en

@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/hippodavstoredemo/hst:catalog:
+      jcr:primaryType: hst:catalog
+      /hippodavstoredemo-catalog:
+        jcr:primaryType: hst:containeritempackage

@@ -1,0 +1,5 @@
+group: 
+  name: hippo-davstore-demo
+  after: hippo-cms
+project: hippo-davstore-demo
+module: hippo-davstore-demo-repository-data-webfiles
