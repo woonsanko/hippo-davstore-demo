@@ -1,8 +1,8 @@
 # hippo-davstore-demo
 
-Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **WebDAV server** or **SFTP server** as a binary content storage.
+Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **SFTP server** or **WebDAV server** as a binary content storage.
 
-Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, WebDAV, SFTP, HDFS, etc.
+Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, SFTP, WebDAV, etc.
 For more details, please read my blog post:
 - http://woonsanko.blogspot.com/2016/08/cant-we-store-huge-amount-of-binary.html
 
@@ -12,9 +12,9 @@ Please see [highlighted dependencies in cms/pom.xml](cms/pom.xml#L17-L45). Basic
 
 ## VFS Backend Test Options: SFTP or WebDAV.
 
-Enable either WebDAV server (Option 1) or SFTP server (option 2) as explained below.
+Enable either SFTP server (option 1) or WebDAV server (Option 2) as explained below.
 
-## Option 1: Using an SFTP server
+### Option 1: Using an SFTP server
 
 In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
 
@@ -26,9 +26,9 @@ In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
 
 Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the connection information properly.
 
-## Option 2: Install and Run an example WebDAV server
+### Option 2: Install and Run an example WebDAV server
 
-Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
+If you want to use a WebDAV server as backend, open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
 
 ```xml
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
@@ -52,7 +52,7 @@ with the root directory at ```wsgidav/davshare```.
 
 Open [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml) and edit the connection information if necessary.
 
-## Option 3: Using the Database DataStore (the default option in Hippo) instead of VFS DataStore
+### Option 3: Using the Database DataStore (the default option in Hippo) instead of VFS DataStore
 
 Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
 
@@ -64,7 +64,9 @@ Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element a
 
 ## Run the Demo Project
 
-This project uses the Maven Cargo plugin to run CMS ("Content Authoring") and SITE ("Content Delivery") web applications locally in Tomcat.
+This project uses the Maven Cargo plugin to run both CMS (http://localhost:8080/cms/ for "Content Authoring") web application
+and SITE (http://localhost:8080/site/ for "Content Delivery") web application locally in Tomcat.
+
 From the project root folder, execute:
 
         mvn clean verify && mvn -P cargo.run
@@ -74,86 +76,20 @@ The default Jackrabbit repository directory is located at ```target/storage```.
 After your project is set up, access the CMS at http://localhost:8080/cms/ and the site at http://localhost:8080/site/.
 Logs are located in target/tomcat8x/logs
 
-If you take a look at the terminal of the WsgiDAV server, then you can already see many logs about content uploading. This is because Hippo Repository bootstraps some example binary content to the repository storage during the initialization.
+When you use a WebDAV server as backend, you can take a look at the terminal of the WsgiDAV server.
+You will see many logs about content uploading. This is because Hippo Repository bootstraps some example binary content to the repository storage during the initialization.
 
 ## Repository Configuration
 
 Repository configuration is located at the following:
 
-- VFS2/WebDAV : [repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
+- VFS2/SFTP : [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
 
-```xml
-          <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="config" value="${catalina.base}/conf/vfs2-datastore-webdav.properties" />
-            <!-- VFSDataStore specific parameters -->
-            <param name="asyncWritePoolSize" value="10" />
-            <!--
-              CachingDataStore specific parameters:
-                - secret : key to generate a secure reference to a binary.
-            -->
-            <param name="secret" value="123456"/>
-            <!--
-              Other important CachingDataStore parameters with default values, just for information:
-                - path : local cache directory path. ${rep.home}/repository/datastore by default.
-                - cacheSize : The number of bytes in the cache. 64GB by default.
-                - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
-                - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
-            -->
-            <param name="minRecordLength" value="1024"/>
-            <param name="recLengthCacheSize" value="10000" />
-          </DataStore>
-```
+  In this demo, more VFS backend specific detail is configured in [conf/vfs2-datastore-sftp.properties](conf/vfs2-datastore-sftp.properties).
 
-You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2-datastore-webdav.properties```) like the following:
+- VFS2/WebDAV : [repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
 
-```
-        baseFolderUri = webdav://tester:secret@localhost:8888/vfsds
-        
-        # Properties to build org.apache.commons.vfs2.FileSystemOptions at runtime when resolving the base folder.
-        # Any properties, name of which is starting with 'fso.', are used to build FileSystemOptions
-        # after removing the 'fso.' prefix. See VFS2 documentation for the detail.
-        fso.http.maxTotalConnections = 200
-        fso.http.maxConnectionsPerHost = 200
-        fso.http.preemptiveAuth = false
-```
-
-- VFS2/SFTP : [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` like the following:
-
-```xml
-          <DataStore class="org.apache.jackrabbit.vfs.ext.ds.VFSDataStore">
-            <param name="config" value="${catalina.base}/conf/vfs2-datastore-sftp.properties" />
-            <!-- VFSDataStore specific parameters -->
-            <param name="asyncWritePoolSize" value="10" />
-            <!--
-              CachingDataStore specific parameters:
-                - secret : key to generate a secure reference to a binary.
-            -->
-            <param name="secret" value="123456"/>
-            <!--
-              Other important CachingDataStore parameters with default values, just for information:
-                - path : local cache directory path. ${rep.home}/repository/datastore by default.
-                - cacheSize : The number of bytes in the cache. 64GB by default.
-                - minRecordLength : The minimum size of an object that should be stored in this data store. 16KB by default.
-                - recLengthCacheSize : In-memory cache size to hold DataRecord#getLength() against DataIdentifier. One item for 140 bytes approximately.
-            -->
-            <param name="minRecordLength" value="1024"/>
-            <param name="recLengthCacheSize" value="10000" />
-          </DataStore>
-```
-
-You can also define VFS specific properties (e.g., ```${catalina.base}/conf/vfs2-datastore-sftp.properties```) like the following:
-
-```
-        baseFolderUri = sftp://tester:secret@localhost/vfsds
-        
-        # Properties to build org.apache.commons.vfs2.FileSystemOptions at runtime when resolving the base folder.
-        # Any properties, name of which is starting with 'fso.', are used to build FileSystemOptions
-        # after removing the 'fso.' prefix. See VFS2 documentation for the detail.
-
-        # when the identity file (your private key file) is used instead of password
-        #fso.sftp.identities = /home/hippo/.ssh/id_rsa
-```
-
+  In this demo, more VFS backend specific detail is configured in [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties).
 
 ## Test Scenarios
 
