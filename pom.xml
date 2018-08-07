@@ -63,9 +63,9 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <jackrabbit-vfs-ext.version>2.16.3</jackrabbit-vfs-ext.version>
+    <jackrabbit-vfs-ext.version>2.17.6-SNAPSHOT</jackrabbit-vfs-ext.version>
     <com.jcraft.jsch.version>0.1.54</com.jcraft.jsch.version>
-    <jackrabbit-webdav.version>2.16.3</jackrabbit-webdav.version>
+    <jackrabbit-webdav.version>2.17.6-SNAPSHOT</jackrabbit-webdav.version>
 
     <essentials.version>4.4.0-1</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
@@ -252,6 +252,11 @@
                     <file>${project.basedir}/conf/vfs2-datastore-sftp.properties</file>
                     <todir>conf/</todir>
                     <tofile>vfs2-datastore-sftp.properties</tofile>
+                  </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/vfs2-filesystem-sftp.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>vfs2-filesystem-sftp.properties</tofile>
                   </configfile>
                   <configfile>
                     <file>${project.basedir}/conf/vfs2-datastore-webdav.properties</file>
