@@ -76,18 +76,18 @@ The default Jackrabbit repository directory is located at ```target/storage```.
 After your project is set up, access the CMS at http://localhost:8080/cms/ and the site at http://localhost:8080/site/.
 Logs are located in target/tomcat8x/logs
 
-When you use a WebDAV server as backend, you can take a look at the terminal of the WsgiDAV server.
+If you use a WebDAV server as backend, you can take a look at the terminal of the WsgiDAV server.
 You will see many logs about content uploading. This is because Hippo Repository bootstraps some example binary content to the repository storage during the initialization.
 
 ## Repository Configuration
 
 Repository configuration is located at the following:
 
-- VFS2/SFTP : [repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
+- VFS2 / SFTP : [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
 
   In this demo, more VFS backend specific detail is configured in [conf/vfs2-datastore-sftp.properties](conf/vfs2-datastore-sftp.properties).
 
-- VFS2/WebDAV : [repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
+- VFS2 / WebDAV : [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
 
   In this demo, more VFS backend specific detail is configured in [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties).
 
