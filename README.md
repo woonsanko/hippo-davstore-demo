@@ -97,23 +97,21 @@ Repository configuration is located at the following:
 
 - Visit http://localhost:8080/site/news.
 - Click on a new article link.
-- The photo inside the article was retrieved from the backend (WebDAV or SFTP) server through ```VFSDataStore``` component.
-- You can see some logs in the WsgiDAV server if it's used.
+- The photo inside the article was retrieved from the backend (SFTP or WebDAV) server through the ```VFSDataStore``` component.
 
 ### Visit CMS ("Content Authoring") to upload binary images / assets (e.g, pdfs)
 
 - Visit http://localhost:8080/cms/
-- Log on by admin/admin
+- Log on by admin/admin.
 - Click on the "Content" perspective.
 - Select "Image" or "Asset" in the dropdown located near the left top corner.
 - Click or create a folder and try to upload image files or asset (e.g, PDF) files.
 - Tip: you need to hover your mouse on a tree node to find and click on the action buttons.
-- You can see some logs in the WsgiDAV server as well if it's used.
 
 ### (Optional) Discovering Content Identity through CMS Console
 
 - Visit http://localhost:8080/cms/console/
-- Log on by admin/admin
+- Log on by admin/admin.
 - Find any binary property (under gallery or asset) which contains data bigger than 16KB (by default, a ```CachingDataStore``` stores binary only when the data is bigger than 16KB).
 - You will be able to find "Content Identity: (Show)" next to the "Upload" button. Click on "(Show)" link to retrieve the content identity.
-- You can possibly figure out where the real binary file is stored in the backend (WebDAV or SFTP) by the "Content Identity" value.
+- You can possibly figure out where the real binary file is stored in the backend (SFTP or WebDAV) by the "Content Identity" value.
