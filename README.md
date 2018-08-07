@@ -10,11 +10,31 @@ For more details, please read my blog post:
 
 Please see [highlighted dependencies in cms/pom.xml](cms/pom.xml#L17-L45). Basically you need to include ```jackrabbit-vfs-ext``` jar dependency and other VFS2 backend dependencies optionally in your project.
 
-## VFS Backend Test Options: WebDAV or SFTP
+## VFS Backend Test Options: SFTP or WebDAV.
 
 Enable either WebDAV server (Option 1) or SFTP server (option 2) as explained below.
 
-## Option 1: Install and Run an example WebDAV server
+## Option 1: Using an SFTP server
+
+In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
+
+```xml
+              <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
+```
+
+Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the connection information properly.
+
+## Option 2: Install and Run an example WebDAV server
+
+Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
+
+```xml
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
+              <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
+              <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
+```
 
 In this demo project, I used [WsgiDAV](https://github.com/mar10/wsgidav) server as WebDAV backend server.
 
@@ -30,15 +50,7 @@ If you installed it, you could move to ```wsgidav``` subfolder and run the follo
 The above command will start WebDAV server at port 8888 [http://localhost:8888](http://localhost:8888)
 with the root directory at ```wsgidav/davshare```.
 
-## Option 2: Using an SFTP server
-
-Open [pom.xml](pom.xml), and comment out the first ```<repo.config>``` element and uncomment the second one instead:
-
-```xml
-              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
-              <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
-              <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
-```
+Open [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml) and edit the connection information if necessary.
 
 ## Option 3: Using the Database DataStore (the default option in Hippo) instead of VFS DataStore
 
