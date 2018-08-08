@@ -3,7 +3,7 @@
 Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **SFTP server** or **WebDAV server** as a binary content storage.
 
 
-#### Warning: Demo with WebDAV not working now!
+#### Warning: Demo with WebDAV not working at the moment!
 
     Please test it with an SFTP server for now as the demo with WebDAV is broken.
     Apache Commons VFS 2 still depends on the old Jackrabbit WebDAV library and Commons HTTP Client 3.x
