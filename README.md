@@ -134,3 +134,14 @@ Repository configuration is located at the following:
 - Find any binary property (under gallery or asset) which contains data bigger than 16KB (by default, a ```CachingDataStore``` stores binary only when the data is bigger than 16KB).
 - You will be able to find "Content Identity: (Show)" next to the "Upload" button. Click on "(Show)" link to retrieve the content identity.
 - You can possibly figure out where the real binary file is stored in the backend (SFTP or WebDAV) by the "Content Identity" value.
+
+### (New Feature) In CMS ("Content Authoring"), test versioning
+
+- Reference: [https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
+- Visit http://localhost:8080/cms/
+- Log on by admin/admin.
+- Open a news document through the Content Perspective / Documents.
+- Edit the news document to add some text in the title for example, and save & close it.
+- Publish the document and you can see revision history through Document / Revision History menu.
+- You may select an old revision, which open a new tab to show the old revision. Under the hood, it reads the versioned
+content from the backend SFTP server.
