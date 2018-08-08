@@ -38,6 +38,9 @@ In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
 [https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
 Therefore, all the version data will be stored in the SFTP backend.
 
+You must build and install locally (```mvn clean install -DskipTests```) the following Jackrabbit feature branch to test the demo below properly:
+- https://github.com/woonsan/jackrabbit/tree/feature/JCR-4354
+
 Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the connection information properly.
 
 ### Option 2: Install and Run an example WebDAV server
