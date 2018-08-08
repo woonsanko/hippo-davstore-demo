@@ -34,6 +34,10 @@ In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
               <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
 ```
 
+**NOTE**: In addition, in this branch, ```VFSFileSystem``` is also configured for **Versioning** in [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), in order to test the feature proposal described in 
+[https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
+Therefore, all the version data will be stored in the SFTP backend.
+
 Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the connection information properly.
 
 ### Option 2: Install and Run an example WebDAV server
