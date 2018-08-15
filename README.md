@@ -151,11 +151,12 @@ in [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), you should be
 directory (`storage/` folder for example as specified by `-Drepo.path=storage`):
 
 - If you clean up the existing the repository directory (e.g, `storage/`) while you have all the data in the VFS backend file system,
-  then Jackrabbit could fail to restart due to namespace exceptions. So you must keep these following files before restart:
+  then Jackrabbit could fail to restart due to namespace exceptions. So you must keep the following files before restart:
 
-        - repository/namespaces/*
+        - repository/namespaces/ns_idx.properties
+        - repository/namespaces/ns_reg.properties 
 
-- As an example, before cleaning up the the repository directory (`storage/` in this example), backup and keep the files in `storage/repository/namespaces/`
+- As an example, before cleaning up the the repository directory (`storage/` in this example), backup and keep the files (`storage/repository/namespaces/*.properties)`
   and clean up the other files and folders.
 - Now you can restart with a cleaned up repository directory without any problem:
 
