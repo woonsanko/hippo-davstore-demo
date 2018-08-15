@@ -88,7 +88,7 @@ and SITE (http://localhost:8080/site/ for "Content Delivery") web application lo
 
 From the project root folder, execute:
 
-        mvn clean verify && mvn -P cargo.run
+        mvn clean verify && mvn -P cargo.run -Drepo.path=storage
 
 The default Jackrabbit repository directory is located at ```target/storage```.
 
@@ -145,3 +145,21 @@ Repository configuration is located at the following:
 - Publish the document and you can see revision history through Document / Revision History menu.
 - You may select an old revision, which open a new tab to show the old revision. Under the hood, it reads the versioned
 content from the backend SFTP server.
+
+## Warning: Jackrabbit namespace registry files in the repository directory
+
+When you test CMS with `VFSFileSystem` for both the workspace `PersistenceManager` and versioning like the default configuration
+in [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), you should be cautious when cleaning up the repository
+directory (`storage/` folder for example as specified by `-Drepo.path=storage`):
+
+- If you clean up the existing the repository directory (e.g, `storage/`) while you have all the data in the VFS backend file system,
+  then Jackrabbit could fail to restart due to namespace exceptions. So you must keep these following files before restart:
+
+        - repository/namespaces/*
+
+- As an example, before cleaning up the the repository directory (`storage/` in this example), backup and keep the files in `storage/repository/namespaces/`
+  and clean up the other files and folders.
+- Now you can restart with a cleaned up repository directory without any problem:
+
+        mvn clean verify && mvn -P cargo.run -Drepo.path=storage
+
