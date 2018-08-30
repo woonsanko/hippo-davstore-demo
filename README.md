@@ -34,7 +34,8 @@ In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
               <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
 ```
 
-**NOTE**: In addition, in this branch, ```VFSFileSystem``` is also configured for **Versioning** in [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), in order to test the feature proposal described in 
+**NOTE**: In addition, in this branch, ```VFSFileSystem``` is also configured for **Repository**, **Workspace** and **Versioning** in
+[conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), in order to demonstrate the feature proposal described in 
 [https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
 Therefore, all the version data will be stored in the SFTP backend.
 
@@ -146,12 +147,12 @@ content from the backend SFTP server.
 
 ## Warning: Jackrabbit namespace registry files in the repository directory
 
-When you test CMS with `VFSFileSystem` for both the workspace `PersistenceManager` and versioning like the default configuration
-in [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), you should be cautious when cleaning up the repository
-directory (`storage/` folder for example as specified by `-Drepo.path=storage`):
+If you run CMS with `VFSFileSystem` for both the **Workspace** and **Versioning**, but not for **Repository**,
+you should be cautious when cleaning up the repository directory (`storage/` folder for example as specified by `-Drepo.path=storage`)
+because the default `FileSystem` of **Repository** is that of `LocalFileSystem`.
 
-- If you clean up the existing the repository directory (e.g, `storage/`) while you have all the data in the VFS backend file system,
-  then Jackrabbit could fail to restart due to namespace exceptions. So you must keep the following files before restart:
+- In that case, if you clean up the existing the repository directory (e.g, `storage/`),
+  then Jackrabbit could fail to restart due to namespace exceptions. So you must keep and restore the following files at least before restart:
 
         - repository/namespaces/ns_idx.properties
         - repository/namespaces/ns_reg.properties 
