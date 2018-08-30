@@ -50,6 +50,26 @@ public class JackrabbitBundleReaderUtils {
         File bundleFile = new File(bundleFilePath);
 
         if (!bundleFile.exists()) {
+            String bundleFileBaseName = bundleFile.getName();
+
+            if (bundleFileBaseName.endsWith(".n")) {
+                bundleFileBaseName = bundleFileBaseName.substring(0, bundleFileBaseName.length() - 2);
+            }
+
+            bundleFileBaseName = bundleFileBaseName.replace("-", "");
+
+            if (bundleFileBaseName.length() == NodeId.UUID_FORMATTED_LENGTH - 4) {
+                int offset = bundleFilePath.lastIndexOf('/');
+                if (offset != -1) {
+                    bundleFilePath = bundleFilePath.substring(0, offset) + "/" + bundleFileBaseName.substring(0, 2)
+                            + "/" + bundleFileBaseName.substring(2, 4) + "/"
+                            + bundleFileBaseName.substring(4, NodeId.UUID_FORMATTED_LENGTH - 4) + ".n";
+                    bundleFile = new File(bundleFilePath);
+                }
+            }
+        }
+
+        if (!bundleFile.exists()) {
             throw new IllegalArgumentException("File doesn't exist: " + bundleFilePath);
         }
 
@@ -137,7 +157,7 @@ public class JackrabbitBundleReaderUtils {
                 if (binary instanceof ReferenceBinary) {
                     strValues.add(binary.toString());
                 } else {
-                    strValues.add("EmbeddedBinarySize=" + binary.getSize());
+                    strValues.add("size=" + binary.getSize());
                 }
             } else {
                 strValues.add(value.getString());
