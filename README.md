@@ -145,7 +145,43 @@ Repository configuration is located at the following:
 - You may select an old revision, which open a new tab to show the old revision. Under the hood, it reads the versioned
 content from the backend SFTP server.
 
-## Warning: Jackrabbit namespace registry files in the repository directory
+### (New Feature) Investigating Tool for bundle files in VFS directory
+
+The [bundlereader](bundlereader) submodule provides a tool to investigate bundle files stored in VFS FileSystem.
+
+After building, you can find the executable uber jar file under its build output directory. e.g, `bundlereader/target/hippo-davstore-demo-bundlereader-*.jar`.
+
+Now suppose you have access a bundle file in your local file system. Then you can run the tool to investigate the content of the file
+like the following:
+
+```bash
+# With a file path:
+$ java -jar target/hippo-davstore-demo-bundlereader-0.2.0-SNAPSHOT.jar /Users/tester/vfsfs/items/21/2a/4141c7064ac68b2768d6281989c9.n
+
+# Or simply with a UUID after the base path (e.g, /Users/tester/vfsfs/items/):
+$ java -jar target/hippo-davstore-demo-bundlereader-0.2.0-SNAPSHOT.jar /Users/tester/vfsfs/items/212a4141-c706-4ac6-8b27-68d6281989c9
+```
+
+Example output:
+
+```
+$ java -jar target/hippo-davstore-demo-bundlereader-0.2.0-SNAPSHOT.jar /Users/tester/vfsfs/items/212a4141-c706-4ac6-8b27-68d6281989c9
+ID: 212a4141-c706-4ac6-8b27-68d6281989c9
+Parent ID: 9e440e6d-e93a-4d5f-913b-9c3b0867c812
+Node type: {http://www.onehippo.org/jcr/hippogallery/nt/2.0}imageset
+Mixin types: []
+Referenceable? false
+Shared set: []
+Properties:
+  - {http://www.onehippo.org/jcr/hippo/nt/2.0.4}paths (String multiple): [212a4141-c706-4ac6-8b27-68d6281989c9, 9e440e6d-e93a-4d5f-913b-9c3b0867c812, 889e1e98-6bc5-4320-8d0b-31c8fedd9c5c, 6a3a88f5-6e99-4323-ad9a-ca661ca50514, 37aa21b2-d5dd-4ac2-9e1c-9cb0f82dd099, ed307dfc-5774-4ac7-9feb-79b57e058bb2, cafebabe-cafe-babe-cafe-babecafebabe]
+  - {http://www.onehippo.org/jcr/hippo/nt/2.0.4}availability (String multiple): [live, preview]
+  - {http://www.onehippo.org/jcr/hippogallery/nt/2.0}filename (String): [banner-1.jpg]
+Children:
+  - {http://www.onehippo.org/jcr/hippogallery/nt/2.0}thumbnail (b962a623-bf1f-4f41-b629-1dccd24e4bbe)
+  - {http://www.onehippo.org/jcr/hippogallery/nt/2.0}original (281c722c-53c7-4c67-8292-2c0e65d7dd48)
+```
+
+## Note: Jackrabbit namespace registry files in the repository directory
 
 If you run CMS with `VFSFileSystem` for both the **Workspace** and **Versioning**, but not for **Repository**,
 you should be cautious when cleaning up the repository directory (`storage/` folder for example as specified by `-Drepo.path=storage`)
