@@ -80,6 +80,8 @@
     <Logger name="org.apache.jackrabbit.core.query.lucene.SearchIndex" level="info"/>
     <Logger name="org.apache.jackrabbit.core.query.lucene.ConsistencyCheck" level="info"/>
 
+    <Logger name="com.amazonaws.services.s3" level="warn" />
+
     <!-- project logging -->
     <Logger name="com.github.woonsanko.davstore.demo" level="info"/>
 
