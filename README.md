@@ -32,6 +32,7 @@ In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
               <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
               <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
 ```
 
 **NOTE**: In addition, in this branch, ```VFSFileSystem``` is also configured for **Repository**, **Workspace** and **Versioning** in
@@ -53,6 +54,7 @@ and comment out the others:
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
               <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config>
               <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
 ```
 
 In this demo project, I used [WsgiDAV](https://github.com/mar10/wsgidav) server as WebDAV backend server.
@@ -80,6 +82,19 @@ and comment out the others:
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
               <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
               <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config>
+              <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
+```
+
+### Option 4: Using the AWS S3 DataStore instead of VFS DataStore
+
+If you want to use the AWS S3 Database DataStore, open [pom.xml](pom.xml), uncomment the third ```<repo.config>``` element
+and comment out the others:
+
+```xml
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
+              <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
+              <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config>
 ```
 
 ## Run the Demo Project

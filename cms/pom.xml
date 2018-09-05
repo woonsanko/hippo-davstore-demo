@@ -44,6 +44,30 @@
       <version>${jackrabbit-webdav.version}</version>
     </dependency>
 
+    <!-- Bonus: S3DataStore related dependencies -->
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-aws-ext</artifactId>
+      <version>${jackrabbit-aws-ext.version}</version>
+      <scope>runtime</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.jackrabbit</groupId>
+          <artifactId>jackrabbit-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.jackrabbit</groupId>
+          <artifactId>jackrabbit-jcr-commons</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- AWS Java SDK -->
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-s3</artifactId>
+      <version>${aws-java-sdk-s3.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.onehippo.cms7.hst.dependencies</groupId>
       <artifactId>hst-repository-dependencies</artifactId>
