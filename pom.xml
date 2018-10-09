@@ -76,11 +76,11 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <jackrabbit-vfs-ext.version>2.17.6-SNAPSHOT</jackrabbit-vfs-ext.version>
+    <jackrabbit-vfs-ext.version>2.17.6</jackrabbit-vfs-ext.version>
     <com.jcraft.jsch.version>0.1.54</com.jcraft.jsch.version>
-    <jackrabbit-webdav.version>2.17.6-SNAPSHOT</jackrabbit-webdav.version>
+    <jackrabbit-webdav.version>2.17.6</jackrabbit-webdav.version>
 
-    <jackrabbit-aws-ext.version>2.17.6-SNAPSHOT</jackrabbit-aws-ext.version>
+    <jackrabbit-aws-ext.version>2.17.6</jackrabbit-aws-ext.version>
     <aws-java-sdk-s3.version>1.11.402</aws-java-sdk-s3.version>
 
     <essentials.version>4.4.0-1</essentials.version>
