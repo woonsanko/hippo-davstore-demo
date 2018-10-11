@@ -40,7 +40,7 @@ even if it's configured only for **Versioning** in [conf/repository-vfs2-sftp.xm
 This is to demonstrate the new feature, [JCR-4354: VFS File System](https://issues.apache.org/jira/browse/JCR-4354).
 By the example configuration, all the version data will be stored in the SFTP backend.
 
-Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the connection information properly.
+Open [conf/vfs2-datastore-sftp.properties](conf/vfs2-datastore-sftp.properties) and edit the connection information properly.
 
 ### Option 2: Install and Run an example WebDAV server
 
@@ -68,7 +68,7 @@ If you installed it, you could move to ```wsgidav``` subfolder and run the follo
 The above command will start WebDAV server at port 8888 [http://localhost:8888](http://localhost:8888)
 with the root directory at ```wsgidav/davshare```.
 
-Open [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml) and edit the connection information if necessary.
+Open [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties) and edit the connection information if necessary.
 
 ### Option 3: Using the Database DataStore (the default option in Hippo) instead of VFS DataStore
 
@@ -93,6 +93,8 @@ and comment out the others:
               <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
               <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config>
 ```
+
+Open [conf/aws-s3-datastore.properties](conf/aws-s3-datastore.properties) and edit the connection information if necessary.
 
 ## Run the Demo Project
 
