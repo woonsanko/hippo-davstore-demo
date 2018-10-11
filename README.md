@@ -1,6 +1,8 @@
 # hippo-davstore-demo
 
-Hippo CMS Demo using Jackrabbit ```VFSDataStore``` against either **SFTP server** or **WebDAV server** as a binary content storage.
+Hippo CMS Demo project, using [Apache Jackrabbit](http://jackrabbit.apache.org/jcr/index.html) ```VFSDataStore``` with **SFTP server**
+or **WebDAV server** as a backend, or using Apache Jackrabbit ```S3DataStore``` with [Amazon S3](https://aws.amazon.com/s3/) backend,
+in order to manage binary content (e.g. images, files, etc.).
 
 
 #### Warning: Demo with WebDAV not working at the moment!
