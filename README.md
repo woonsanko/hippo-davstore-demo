@@ -120,7 +120,7 @@ Repository configuration is located at the following:
 
   More VFS backend specific detail for backend SFTP server is configured in [conf/vfs2-datastore-sftp.properties](conf/vfs2-datastore-sftp.properties).
 
-  Also, this SFTP configuration demonstrates the separate feature [JCR-4354: VFS based FileSystem](https://issues.apache.org/jira/browse/JCR-4354), by using ```VFSFileSystem``` for version storage by default. See [JCR-4354: VFS based FileSystem](#new-feature-JCR-4354) for detail.
+  Also, this SFTP configuration demonstrates the separate feature [JCR-4354: VFS based FileSystem](https://issues.apache.org/jira/browse/JCR-4354), by using ```VFSFileSystem``` for version storage by default. See [JCR-4354: VFS based FileSystem](#new-feature-jcr-4354-vfs-file-system-for-version-storage-for-example) for detail.
 
 - VFS2 / WebDAV : [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which sets ```DataStore``` using ```VFSDataStore``` component.
 
