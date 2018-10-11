@@ -35,13 +35,10 @@ In [pom.xml](pom.xml), it is configured to use a SFTP backend by default:
               <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
 ```
 
-**NOTE**: In addition, in this branch, ```VFSFileSystem``` is also configured for **Repository**, **Workspace** and **Versioning** in
-[conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), in order to demonstrate the feature proposal described in 
-[https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
-Therefore, all the version data will be stored in the SFTP backend.
-
-You must build and install locally (```mvn clean install -DskipTests```) the following Jackrabbit feature branch to test the demo below properly:
-- https://github.com/woonsan/jackrabbit/tree/feature/JCR-4354
+**NOTE**: In addition, ```VFSFileSystem``` can also be configured for **Repository**, **Workspace** and **Versioning**
+even if it's configured only for **Versioning** in [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) at the moment.
+This is to demonstrate the new feature, [JCR-4354: VFS File System](https://issues.apache.org/jira/browse/JCR-4354).
+By the example configuration, all the version data will be stored in the SFTP backend.
 
 Open [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml) and edit the connection information properly.
 
