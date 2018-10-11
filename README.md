@@ -116,13 +116,17 @@ You will see many logs about content uploading. This is because Hippo Repository
 
 Repository configuration is located at the following:
 
-- VFS2 / SFTP : [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
+- VFS2 / SFTP : [conf/repository-vfs2-sftp.xml](conf/repository-vfs2-sftp.xml), which sets ```DataStore``` using ```VFSDataStore``` component.
 
-  In this demo, more VFS backend specific detail is configured in [conf/vfs2-datastore-sftp.properties](conf/vfs2-datastore-sftp.properties).
+  More VFS backend specific detail for backend SFTP server is configured in [conf/vfs2-datastore-sftp.properties](conf/vfs2-datastore-sftp.properties).
 
-- VFS2 / WebDAV : [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which customizes the ```DataStore``` using ```VFSDataStore``` component.
+  Also, this SFTP configuration demonstrates the separate feature [JCR-4354: VFS based FileSystem](https://issues.apache.org/jira/browse/JCR-4354), by using ```VFSFileSystem``` for version storage by default. See [JCR-4354: VFS based FileSystem](#new-feature-JCR-4354) for detail.
 
-  In this demo, more VFS backend specific detail is configured in [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties).
+- VFS2 / WebDAV : [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which sets ```DataStore``` using ```VFSDataStore``` component.
+
+- S3 : [conf/repository-aws-s3.xml](conf/repository-aws-s3.xml), which sets ```DataStore``` using ```S3DataStore``` component.
+
+  More VFS backend specific detail for backend WebDAV connection is shown in [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties).
 
 ## Test Scenarios
 
@@ -149,7 +153,7 @@ Repository configuration is located at the following:
 - You will be able to find "Content Identity: (Show)" next to the "Upload" button. Click on "(Show)" link to retrieve the content identity.
 - You can possibly figure out where the real binary file is stored in the backend (SFTP or WebDAV) by the "Content Identity" value.
 
-### (New Feature) In CMS ("Content Authoring"), test versioning
+### (New Feature) JCR-4354: VFS File System (for version storage for example)
 
 - Reference: [https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
 - Visit http://localhost:8080/cms/

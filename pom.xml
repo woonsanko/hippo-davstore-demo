@@ -319,10 +319,10 @@
               <container>
                 <systemProperties>
 
-                  <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config> -->
+                  <repo.config>file://${project.basedir}/conf/repository-vfs2-sftp.xml</repo.config>
                   <!-- <repo.config>file://${project.basedir}/conf/repository-vfs2-webdav.xml</repo.config> -->
                   <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
-                  <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config>
+                  <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
 
                   <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
