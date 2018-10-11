@@ -125,9 +125,9 @@ Repository configuration is located at the following:
 
 - VFS2 / WebDAV : [conf/repository-vfs2-webdav.xml](conf/repository-vfs2-webdav.xml), which sets ```DataStore``` using ```VFSDataStore``` component.
 
-- S3 : [conf/repository-aws-s3.xml](conf/repository-aws-s3.xml), which sets ```DataStore``` using ```S3DataStore``` component.
-
   More VFS backend specific detail for backend WebDAV connection is shown in [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties).
+
+- S3 : [conf/repository-aws-s3.xml](conf/repository-aws-s3.xml), which sets ```DataStore``` using ```S3DataStore``` component.
 
 ## Test Scenarios
 
