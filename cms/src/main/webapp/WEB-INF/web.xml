@@ -179,6 +179,77 @@
     <load-on-startup>6</load-on-startup>
   </servlet>
 
+  <!--
+    WebDAV support (DAV 1,2 and DeltaV) to your jackrabbit repository.
+   
+    NOTE: Find example configuration for resource-config init parameter below
+    from https://svn.apache.org/repos/asf/jackrabbit/trunk/jackrabbit-webapp/src/main/webapp/WEB-INF/config.xml.
+  -->
+  <servlet>
+    <servlet-name>SimpleWebdavServlet</servlet-name>
+    <servlet-class>org.onehippo.forge.repository.server.webdav.SimpleWebdavServlet</servlet-class>
+    <init-param>
+      <param-name>repository-address</param-name>
+      <param-value>vm://</param-value>
+    </init-param>
+    <init-param>
+      <param-name>allowAnonymousAccess</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>missing-auth-mapping</param-name>
+      <param-value></param-value>
+    </init-param>
+    <init-param>
+      <param-name>resource-config</param-name>
+      <param-value>/WEB-INF/webdav-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>authenticate-header</param-name>
+      <param-value>Basic realm="Hippo Repository WebDAV Access Support"</param-value>
+    </init-param>
+    <init-param>
+      <param-name>createAbsoluteURI</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>resource-path-prefix</param-name>
+      <param-value>/webdav</param-value>
+    </init-param>
+    <load-on-startup>7</load-on-startup>
+  </servlet>
+
+  <!--
+    JCR over WebDAV Server Servlet:
+    WARNING: This servlet gives accesses to repository through WebDAV with Basic Authentication by default.
+             So, you may want to put more secured access controls on the communication channel where needed.
+  -->
+  <servlet>
+    <servlet-name>JCRWebdavServer</servlet-name>
+    <servlet-class>org.onehippo.forge.repository.server.remoting.davex.JcrRemotingServlet</servlet-class>
+    <init-param>
+      <param-name>repository-address</param-name>
+      <param-value>vm://</param-value>
+    </init-param>
+    <init-param>
+      <param-name>allowAnonymousAccess</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>missing-auth-mapping</param-name>
+      <param-value></param-value>
+    </init-param>
+    <init-param>
+      <param-name>authenticate-header</param-name>
+      <param-value>Basic realm="Hippo Repository Webdav Server"</param-value>
+    </init-param>
+    <init-param>
+      <param-name>resource-path-prefix</param-name>
+      <param-value>/server</param-value>
+    </init-param>
+    <load-on-startup>6</load-on-startup>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>LoggingServlet</servlet-name>
     <url-pattern>/logging/*</url-pattern>
@@ -212,6 +283,22 @@
   <servlet-mapping>
     <servlet-name>RepositoryJaxrsServlet</servlet-name>
     <url-pattern>/ws/*</url-pattern>
+  </servlet-mapping>
+
+  <!--
+    WebDAV support (DAV 1,2 and DeltaV) Servlet Mapping:
+  -->
+  <servlet-mapping>
+    <servlet-name>SimpleWebdavServlet</servlet-name>
+    <url-pattern>/webdav/*</url-pattern>
+  </servlet-mapping>
+
+  <!--
+    JCR over WebDAV Server Servlet Mapping:
+  -->
+  <servlet-mapping>
+    <servlet-name>JCRWebdavServer</servlet-name>
+    <url-pattern>/server/*</url-pattern>
   </servlet-mapping>
 
   <!-- Timeout in minutes -->
