@@ -5,15 +5,6 @@ or **WebDAV server** as a backend, or using Apache Jackrabbit ```S3DataStore``` 
 in order to manage binary content (e.g. images, files, etc.).
 
 
-#### Warning: Demo with WebDAV not working at the moment!
-
-    Please test it with an SFTP server for now as the demo with WebDAV is broken.
-    Apache Commons VFS 2 still depends on the old Jackrabbit WebDAV library and Commons HTTP Client 3.x
-    for the **webdav** protocol.
-    However, Apache Jackrabbit WebDAV library has upgraded HttpClient to v4.x since 2.14 (ref: JCR-4065).
-    So, those two no more work with each other.
-    Apache Commons VFS project will upgrade the Jackrabbit dependency accordingly with VFS-686.
-
 Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, SFTP, WebDAV, etc.
 For more details, please read my blog post:
 - http://woonsanko.blogspot.com/2016/08/cant-we-store-huge-amount-of-binary.html
@@ -56,19 +47,17 @@ and comment out the others:
               <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
 ```
 
-In this demo project, I used [WsgiDAV](https://github.com/mar10/wsgidav) server as WebDAV backend server.
+In this demo project, I used [Apache Jackrabbit Standalone](http://jackrabbit.apache.org/jcr/standalone-server.html) server
+as WebDAV backend server.
 
-You can install/configure it following this page:
-- [http://wsgidav.readthedocs.io/en/latest/installation.html](http://wsgidav.readthedocs.io/en/latest/installation.html)
-- [http://wsgidav.readthedocs.io/en/latest/user_guide_configure.html](http://wsgidav.readthedocs.io/en/latest/user_guide_configure.html)
+If you downloaded it somewhere, you can run the following to run it:
 
-If you installed it, you could move to ```wsgidav``` subfolder and run the following to make this demo run:
+        java -jar ./jackrabbit-standalone-2.18.2.jar -p 8888
+        
 
-        cd wsgidav
-        ./start-wsgidav.sh
+(`-p 8888` sets its port number to 8888; otherwise 8080 by default.)
 
-The above command will start WebDAV server at port 8888 [http://localhost:8888](http://localhost:8888)
-with the root directory at ```wsgidav/davshare```.
+The above command will start WebDAV server at port 8888 [http://localhost:8888/repository/default/](http://localhost:8888/repository/default/).
 
 Open [conf/vfs2-datastore-webdav.properties](conf/vfs2-datastore-webdav.properties) and edit the connection information if necessary.
 
