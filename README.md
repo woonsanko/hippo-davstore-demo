@@ -5,7 +5,7 @@ or **WebDAV server** as a backend, or using Apache Jackrabbit ```S3DataStore``` 
 in order to manage binary content (e.g. images, files, etc.).
 
 
-Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.13.2) is using Commons VFS 2 to get access to various backend storages such as local file system, SFTP, WebDAV, etc.
+Jackrabbit ```VFSDataStore``` (available since Jackrabbit 2.14.0) is using Commons VFS 2 to get access to various backend storages such as local file system, SFTP, WebDAV, etc.
 For more details, please read my blog post:
 - http://woonsanko.blogspot.com/2016/08/cant-we-store-huge-amount-of-binary.html
 
@@ -52,7 +52,7 @@ as WebDAV backend server.
 
 If you downloaded it somewhere, you can run the following to run it:
 
-        java -jar ./jackrabbit-standalone-2.18.2.jar -p 8888
+        java -jar ./jackrabbit-standalone-2.20.0.jar -p 8888
         
 
 (`-p 8888` sets its port number to 8888; otherwise 8080 by default.)
@@ -145,7 +145,7 @@ Repository configuration is located at the following:
 - You will be able to find "Content Identity: (Show)" next to the "Upload" button. Click on "(Show)" link to retrieve the content identity.
 - You can possibly figure out where the real binary file is stored in the backend (SFTP or WebDAV) by the "Content Identity" value.
 
-### (New Feature) JCR-4354: VFS File System (for version storage for example)
+### (Optional) JCR-4354: VFS File System (for version storage for example)
 
 - Reference: [https://issues.apache.org/jira/browse/JCR-4354](https://issues.apache.org/jira/browse/JCR-4354).
 - Visit http://localhost:8080/cms/
@@ -156,7 +156,7 @@ Repository configuration is located at the following:
 - You may select an old revision, which open a new tab to show the old revision. Under the hood, it reads the versioned
 content from the backend SFTP server.
 
-### (New Feature) Investigating Tool for bundle files in VFS directory
+### (Optional) Investigating Tool for bundle files in VFS directory
 
 The [bundlereader](bundlereader) submodule provides a tool to investigate bundle files stored in VFS FileSystem.
 
