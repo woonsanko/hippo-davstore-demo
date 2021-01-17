@@ -11,15 +11,5 @@
       <outputDirectory>conf</outputDirectory>
       <destName>context.xml</destName>
     </file>
-    <file>
-      <source>conf/vfs2-datastore-sftp.properties</source>
-      <outputDirectory>conf</outputDirectory>
-      <destName>vfs2-datastore-sftp.properties</destName>
-    </file>
-    <file>
-      <source>conf/vfs2-datastore-webdav.properties</source>
-      <outputDirectory>conf</outputDirectory>
-      <destName>vfs2-datastore-webdav.properties</destName>
-    </file>
   </files>
 </component>

@@ -1,35 +1,5 @@
 definitions:
   config:
-    /hippo:configuration/hippo:translations/hippo:types/hippodavstoredemo:bannerdocument:
-      jcr:primaryType: hipposys:resourcebundles
-      /en:
-        jcr:primaryType: hipposys:resourcebundle
-        hippodavstoredemo:content: Content
-        hippodavstoredemo:image: Image
-        hippodavstoredemo:link: Link
-        hippodavstoredemo:title: Title
-        jcr:name: Banner
-      /nl:
-        jcr:primaryType: hipposys:resourcebundle
-        hippodavstoredemo:content: Inhoud
-        hippodavstoredemo:image: Afbeelding
-        hippodavstoredemo:link: Link
-        hippodavstoredemo:title: Titel
-        jcr:name: Banner
-      /fr:
-        jcr:primaryType: hipposys:resourcebundle
-        hippodavstoredemo:content: Contenu
-        hippodavstoredemo:image: Image
-        hippodavstoredemo:link: Lien
-        hippodavstoredemo:title: Titre
-        jcr:name: Bannière
-      /de:
-        jcr:primaryType: hipposys:resourcebundle
-        hippodavstoredemo:content: Inhalt
-        hippodavstoredemo:image: Abbildung
-        hippodavstoredemo:link: Link
-        hippodavstoredemo:title: Titel
-        jcr:name: Banner
     /hippo:configuration/hippo:translations/hippo:types/hippodavstoredemo:eventsdocument:
       jcr:primaryType: hipposys:resourcebundles
       /en:

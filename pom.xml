@@ -1,38 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>12.6.6</version>
+    <version>14.4.0</version>
   </parent>
 
   <name>Hippo DAV VFS DataStore Demo Project</name>
   <description>Hippo DAV VFS DataStore Demo Project</description>
   <groupId>com.github.woonsanko</groupId>
   <artifactId>hippo-davstore-demo</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+  <version>0.4.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <!--
+  <!-- 
     The below project elements are emptied/overridden as otherwise their metadata would be
     inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
 
-    DO NOT remove these tags but instead fill them in appropriately as needed,
+    DO NOT remove these tags but instead fill them in appropriately as needed, 
     UNLESS the inherited values are valid for your project.
   -->
   <url/>
@@ -75,24 +62,22 @@
 
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
+    <jackrabbit-vfs-ext.version>2.20.3-SNAPSHOT</jackrabbit-vfs-ext.version>
+    <com.jcraft.jsch.version>0.1.55</com.jcraft.jsch.version>
+    <jackrabbit-webdav.version>2.20.3-SNAPSHOT</jackrabbit-webdav.version>
 
-    <jackrabbit-vfs-ext.version>2.21.0-SNAPSHOT</jackrabbit-vfs-ext.version>
-    <com.jcraft.jsch.version>0.1.54</com.jcraft.jsch.version>
-    <jackrabbit-webdav.version>2.21.0-SNAPSHOT</jackrabbit-webdav.version>
-
-    <jackrabbit-aws-ext.version>2.21.0-SNAPSHOT</jackrabbit-aws-ext.version>
-    <aws-java-sdk-s3.version>1.11.402</aws-java-sdk-s3.version>
+    <jackrabbit-aws-ext.version>2.20.3-SNAPSHOT</jackrabbit-aws-ext.version>
+    <aws-java-sdk-s3.version>1.11.700</aws-java-sdk-s3.version>
 
     <forge.hipporepojcrdav.version>1.1.3</forge.hipporepojcrdav.version>
 
-    <essentials.version>4.4.0-1</essentials.version>
+    <essentials.version>14.4.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
-    <xalan.version>2.7.2</xalan.version>
-    <junit.version>4.12</junit.version>
-    <easymock.version>3.4</easymock.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
+
+    <docker.postgres.bind.1>${project.basedir}/target/postgres-data:/var/lib/postgresql/data</docker.postgres.bind.1>
 
     <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
     <buildNumber>${maven.build.timestamp}</buildNumber>
@@ -113,12 +98,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>org.onehippo.cms7</groupId>
-        <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
-        <version>${essentials.version}</version>
-      </dependency>
-
       <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
@@ -141,38 +120,11 @@
         <scope>runtime</scope>
       </dependency>
 
-      <dependency>
-        <groupId>xalan</groupId>
-        <artifactId>xalan</artifactId>
-        <version>${xalan.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>xalan</groupId>
-        <artifactId>serializer</artifactId>
-        <version>${xalan.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
       <!-- other predefined compile scope versioned dependencies -->
       <dependency>
         <groupId>org.freemarker</groupId>
         <artifactId>freemarker</artifactId>
         <version>${freemarker.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.easymock</groupId>
-        <artifactId>easymock</artifactId>
-        <version>${easymock.version}</version>
-        <scope>test</scope>
       </dependency>
 
     </dependencies>
@@ -240,19 +192,99 @@
         </property>
       </activation>
       <modules>
+        <module>cms-dependencies</module>
         <module>repository-data</module>
         <module>cms</module>
         <module>site</module>
         <module>essentials</module>
-        <module>bundlereader</module>
       </modules>
+    </profile>
+
+    <profile>
+      <id>docker.build</id>
+      <dependencies>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-cms</artifactId>
+          <version>${project.version}</version>
+          <type>war</type>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-webapp</artifactId>
+          <version>${project.version}</version>
+          <type>war</type>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>docker.run</id>
+      <dependencies>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-essentials</artifactId>
+          <version>${project.version}</version>
+          <type>war</type>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-repository-data-development</artifactId>
+          <version>${project.version}</version>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${project.artifactId}-repository-data-site-development</artifactId>
+          <version>${project.version}</version>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>mysql</id>
+    </profile>
+
+    <profile>
+      <id>docker.mysql</id>
+      <properties>
+        <docker.db.bind.1>${project.basedir}/target/mysql-data:/var/lib/mysql</docker.db.bind.1>
+        <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
+
+        <docker.brxm.envRun.MYSQL_DB_HOST>${docker.container.db.net.hippo-davstore-demo-network.ip}</docker.brxm.envRun.MYSQL_DB_HOST>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>postgres</id>
+    </profile>
+
+    <profile>
+      <id>docker.postgres</id>
+      <properties>
+        <docker.db.bind.1>${docker.postgres.bind.1}</docker.db.bind.1>
+        <docker.db.bind.2>${project.basedir}/db-bootstrap:/docker-entrypoint-initdb.d</docker.db.bind.2>
+
+        <docker.brxm.envRun.POSTGRES_DB_HOST>${docker.container.db.net.hippo-davstore-demo-network.ip}</docker.brxm.envRun.POSTGRES_DB_HOST>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>docker.windows</id>
+      <properties>
+        <docker.postgres.bind.1>hippo-davstore-demo-postgres-data:/var/lib/postgresql/data</docker.postgres.bind.1>
+      </properties>
     </profile>
 
     <profile>
       <id>cargo.run</id>
       <properties>
-        <!--Already defined in hippo-cms-project POM. Override here for project, if necessary-->
-        <!--<repo.bootstrap>true</repo.bootstrap>-->
+        <!-- Already defined in the cms project POM. Override here for your project, if necessary -->
+        <!-- <repo.bootstrap>true</repo.bootstrap> -->
       </properties>
       <build>
         <plugins>
@@ -271,6 +303,16 @@
                     <file>${project.basedir}/conf/catalina-logging.properties</file>
                     <todir>conf/</todir>
                     <tofile>logging.properties</tofile>
+                  </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/hst-dev.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>hst.properties</tofile>
+                  </configfile>
+                  <configfile>
+                    <file>${project.basedir}/conf/platform-dev.properties</file>
+                    <todir>conf/</todir>
+                    <tofile>platform.properties</tofile>
                   </configfile>
                   <configfile>
                     <file>${project.basedir}/conf/vfs2-datastore-sftp.properties</file>
@@ -298,6 +340,10 @@
                     <file>${project.basedir}/repository-data/development/target/hippo-davstore-demo-repository-data-development-${project.version}.jar</file>
                     <todir>${development-module-deploy-dir}</todir>
                   </file>
+                  <file>
+                    <file>${project.basedir}/repository-data/site-development/target/hippo-davstore-demo-repository-data-site-development-${project.version}.jar</file>
+                    <todir>${development-module-deploy-dir}</todir>
+                  </file>
                 </files>
               </configuration>
               <deployables>
@@ -306,17 +352,17 @@
                   <properties>
                     <context>/cms</context>
                   </properties>
-                  <location>${project.basedir}/cms/target/cms.war</location>
+                  <location>${project.basedir}/cms/target/cms</location>
                 </deployable>
                 <deployable>
-                  <location>${project.basedir}/site/target/site.war</location>
+                  <location>${project.basedir}/site/webapp/target/site</location>
                   <type>war</type>
                   <properties>
                     <context>/site</context>
                   </properties>
                 </deployable>
                 <deployable>
-                  <location>${project.basedir}/essentials/target/essentials.war</location>
+                  <location>${project.basedir}/essentials/target/essentials</location>
                   <type>war</type>
                   <properties>
                     <context>/essentials</context>
@@ -331,7 +377,7 @@
                   <!-- <repo.config>file://${project.basedir}/conf/repository-db.xml</repo.config> -->
                   <!-- <repo.config>file://${project.basedir}/conf/repository-aws-s3.xml</repo.config> -->
 
-                  <log4j.configurationFile>file://${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
+                  <log4j.configurationFile>${project.basedir}/conf/log4j2-dev.xml</log4j.configurationFile>
                   <!-- enables auto export and web files watch: -->
                   <project.basedir>${project.basedir}</project.basedir>
                   <send.usage.statistics.to.hippo>true</send.usage.statistics.to.hippo>
@@ -344,11 +390,14 @@
     </profile>
 
     <profile>
-      <!-- additional profile to combine with cargo:run to *not* bootstrap the development module:
+      <!-- additional profile to combine with cargo:run to *not* bootstrap the development modules:
            $ mvn -P cargo.run,without-development-data -->
       <id>without-development-data</id>
       <properties>
         <development-module-deploy-dir>temp</development-module-deploy-dir>
+
+        <!-- Comment out Dockerfile instruction that copies development modules to an image -->
+        <docker.brxm.copy.dev.libs.cmd>#</docker.brxm.copy.dev.libs.cmd>
       </properties>
     </profile>
 

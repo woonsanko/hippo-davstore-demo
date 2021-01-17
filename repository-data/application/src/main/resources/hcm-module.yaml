@@ -1,4 +1,4 @@
-group: 
+group:
   name: hippo-davstore-demo
   after: hippo-cms
 project: hippo-davstore-demo

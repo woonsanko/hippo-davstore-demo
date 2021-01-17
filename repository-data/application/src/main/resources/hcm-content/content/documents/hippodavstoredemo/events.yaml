@@ -1,23 +1,23 @@
 /content/documents/hippodavstoredemo/events:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: 900b07be-e847-4b5c-a693-0bcdff7c4297
+  jcr:uuid: a2079bba-c2bc-4d45-8d7b-189447084a84
   hippostd:foldertype: [new-events-document, new-events-folder]
-  hippotranslation:id: 0e90d73b-ec26-4b56-938f-2f690cb0c5ff
+  hippotranslation:id: 12895a38-9ef9-4cd4-b614-46db7a03c112
   hippotranslation:locale: en
-  /2018:
+  /2021:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-    jcr:uuid: 0e16319f-5a10-44c2-979e-6984745d0a65
+    jcr:uuid: 6107cb75-b080-404a-bfdb-2c0a05c19a82
     hippostd:foldertype: [new-events-document, new-events-folder]
-    hippotranslation:id: 0c5be09f-44c4-4a05-a640-0e8c1ecba560
+    hippotranslation:id: 46878e66-3145-41a4-b267-4b700a7052ca
     hippotranslation:locale: en
-    /08:
+    /01:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 3da728dc-7ec4-4332-a6f6-99428e7cb49a
+      jcr:uuid: cc71ec40-8944-4e31-ae6b-154d684a5efe
       hippostd:foldertype: [new-events-document, new-events-folder]
-      hippotranslation:id: 1d9cc131-72df-4df0-9452-1e14d4d1573a
+      hippotranslation:id: fb46f680-348e-4c7a-b45f-0b5b0c1be910
       hippotranslation:locale: en
       /breakfast:
         jcr:primaryType: hippo:handle
@@ -27,11 +27,11 @@
         /breakfast:
           jcr:primaryType: hippodavstoredemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c5e1823a-a9d6-47eb-9a5e-44771d4c02bc
+          jcr:uuid: 5e3d7ab6-ff93-4292-9980-0a3bf34c955b
           hippo:availability: [live, preview]
           hippodavstoredemo:date: 2013-11-12T08:00:00+01:00
           hippodavstoredemo:documenttype: event
-          hippodavstoredemo:enddate: 2019-08-07T10:40:00-04:00
+          hippodavstoredemo:enddate: 2022-01-16T20:30:00-05:00
           hippodavstoredemo:introduction: Start the day with a nice breakfast.
           hippodavstoredemo:location: Room 101
           hippodavstoredemo:title: Breakfast
@@ -42,7 +42,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T11:11:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
-          hippotranslation:id: 0cd67fa7-cdce-4ac4-b98b-8b14184f6220
+          hippotranslation:id: f68700f1-0bd5-4f85-8cec-d4e99c384b03
           hippotranslation:locale: en
           /hippodavstoredemo:content:
             jcr:primaryType: hippostd:html
@@ -68,11 +68,11 @@
         /introduction-speech:
           jcr:primaryType: hippodavstoredemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c850bca5-7cad-4dda-aa9c-2e2b972e0447
+          jcr:uuid: 0ee5b47f-a847-4929-90ec-5bfd9f2ce0f1
           hippo:availability: [live, preview]
           hippodavstoredemo:date: 2013-11-12T10:00:00+01:00
           hippodavstoredemo:documenttype: event
-          hippodavstoredemo:enddate: 2019-08-07T10:40:00-04:00
+          hippodavstoredemo:enddate: 2022-01-16T20:30:00-05:00
           hippodavstoredemo:introduction: After breakfast there will be an introductory
             speech.
           hippodavstoredemo:location: Room 400
@@ -84,7 +84,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T11:16:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
-          hippotranslation:id: 5eed9086-e84d-469b-b9ab-3fd0a9fcc28d
+          hippotranslation:id: 9b0b3448-31d7-4df6-9011-28967fbbd2e8
           hippotranslation:locale: en
           /hippodavstoredemo:content:
             jcr:primaryType: hippostd:html
@@ -109,11 +109,11 @@
         /workshop:
           jcr:primaryType: hippodavstoredemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 9beefd82-009d-4592-a291-d87db5b9ad30
+          jcr:uuid: d0947246-c114-4a55-a432-9df28ce323a0
           hippo:availability: [live, preview]
           hippodavstoredemo:date: 2013-11-12T13:00:00+01:00
           hippodavstoredemo:documenttype: event
-          hippodavstoredemo:enddate: 2019-08-07T10:40:00-04:00
+          hippodavstoredemo:enddate: 2022-01-16T20:30:00-05:00
           hippodavstoredemo:introduction: Workshop starts at 1:00
           hippodavstoredemo:location: Room 600
           hippodavstoredemo:title: Workshop
@@ -124,7 +124,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T11:18:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
-          hippotranslation:id: a1afd875-f931-42ad-aa68-cc20a3e183e0
+          hippotranslation:id: b98b88c1-4e60-4177-a13d-82ec30219c05
           hippotranslation:locale: en
           /hippodavstoredemo:content:
             jcr:primaryType: hippostd:html

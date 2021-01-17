@@ -3,19 +3,19 @@ definitions:
     /hippo:namespaces/hippodavstoredemo/newsdocument:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 40f49154-d761-42f2-b1d4-eebf8e63d024
+      jcr:uuid: 15cf3ef4-4914-4115-8073-dd430edf76c9
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: a5a8be25-c1c6-4afb-917c-908717bea7f5
+        jcr:uuid: d3c01871-22a7-4911-8336-703f81437ceb
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 32d7b634-5114-452c-b972-cd651ae70d33
+          jcr:uuid: 70299d96-cd8e-4c74-a38d-4ca5b1563241
           hipposysedit:node: true
           hipposysedit:supertype: ['hippodavstoredemo:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
-          hipposysedit:uri: http://www.onehippo.org/hippodavstoredemo/nt/1.0
+          hipposysedit:uri: http://www.hippodavstoredemo.com/hippodavstoredemo/nt/1.0
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -86,7 +86,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: hippodavstoredemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 77ee9376-4dbc-4428-b239-46c9e98c1b6f
+          jcr:uuid: aa8daf53-6481-4620-89ba-e3e0b253d56e
           hippo:related___pathreference: []
           hippodavstoredemo:date: 0001-01-01T13:00:00+01:00
           hippodavstoredemo:documenttype: news

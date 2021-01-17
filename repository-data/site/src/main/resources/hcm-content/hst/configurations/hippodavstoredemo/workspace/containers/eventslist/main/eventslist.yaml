@@ -1,0 +1,9 @@
+/hst:hst/hst:configurations/hippodavstoredemo/hst:workspace/hst:containers/eventslist/main/eventslist:
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsEventsComponent
+  hst:label: Events List
+  hst:parameternames: [hidePastEvents, documentTypes, sortField, sortOrder, includeSubtypes,
+    showPagination, path, pageSize, documentDateField]
+  hst:parametervalues: ['on', 'hippodavstoredemo:eventsdocument', '', desc, 'off',
+    'on', '', '10', 'hippodavstoredemo:enddate']
+  hst:template: eventslist-main-eventslist

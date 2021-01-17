@@ -1,0 +1,6 @@
+site: hippo-davstore-demo
+group: hippo-davstore-demo
+project: hippo-davstore-demo
+module:
+  name: hippo-davstore-demo-repository-data-site-development
+  after: hippo-davstore-demo-repository-data-site

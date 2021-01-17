@@ -1,4 +1,4 @@
-Running locally
+Running Locally
 ===============
 
 This project uses the Maven Cargo plugin to run Essentials, the CMS and site locally in Tomcat.
@@ -17,11 +17,32 @@ against an existing repository, you can specify the *additional* Maven profile w
 This additional profile will modify the target location for the development module to the Tomcat temp/ folder so that
 it won't be seen and picked up during the repository bootstrap process.
 
-Access the Hippo Essentials at <http://localhost:8080/essentials>.
-After your project is set up, access the CMS at <http://localhost:8080/cms> and the site at <http://localhost:8080/site>.
-Logs are located in target/tomcat8x/logs
+Access the Bloomreach setup application at <http://localhost:8080/essentials>.
+After your project is set up, access the CMS at <http://localhost:8080/cms> and the site at <http://localhost:8080/hippodavstoredemo>.
+Logs are located in target/tomcat9x/logs
 
-Building distributions
+
+Best Practice for Development
+=============================
+
+Use the option `-Drepo.path=/some/path/to/repository` during start up. This will avoid
+your repository to be cleared when you do a mvn clean.
+
+For example start your project with:
+
+    mvn -P cargo.run -Drepo.path=/home/usr/tmp/repo
+
+
+Automatic Export
+================
+
+Automatic export of repository changes to the filesystem is turned on by default. To control this behavior, log into
+<http://localhost:8080/cms/console> and press the "Enable/Disable Auto Export" button at the top right. To set this
+as the default for your project edit the file
+./repository-data/application/src/main/resources/hcm-config/configuration/modules/autoexport-module.yaml
+
+
+Building Distributions
 ======================
 
 To build Tomcat distribution tarballs:
@@ -42,53 +63,64 @@ placed in this module explicitly by developers, for demo or testing purposes, et
 
 See also src/main/assembly/*.xml if you need to customize the distributions.
 
-Using JRebel
-============
 
-Set the environment variable REBEL_HOME to the directory containing jrebel.jar.
+Distributing Additional Site Projects
+=====================================
 
-Build with:
+Note that if your organization is using multiple site projects, you must configure the assembly of a distribution to
+include all of the separate site webapps for deployment. This project is designed for stand-alone use and does not
+automatically include any additional, externally-maintained site webapps.
 
-    mvn clean verify -Djrebel
 
-Start with:
+Running the brXM Project in a Docker Container
+======================
 
-    mvn -P cargo.run -Djrebel
+To run the brXM project in a docker container, you must install the project, build the docker image and run the docker
+image respectively.
 
-Best Practice for development
-=============================
+First install the project:
 
-Use the option `-Drepo.path=/some/path/to/repository` during start up. This will avoid
-your repository to be cleared when you do a mvn clean.
+    mvn clean install
 
-For example start your project with:
+Then build the brXM docker image:
 
-    mvn -P cargo.run -Drepo.path=/home/usr/tmp/repo
+    mvn -Pdocker.build
 
-or with jrebel:
+This maven profile will create a docker image and add it to the local docker registry. The new image will be tagged
+as com.github.woonsanko/hippo-davstore-demo:0.4.0-SNAPSHOT
 
-    mvn -P cargo.run -Drepo.path=/home/usr/tmp/repo -Djrebel
+To run the image with in-memory h2 database:
 
-Hot deploy
-==========
+    mvn -Pdocker.run
 
-To hot deploy, redeploy or undeploy the CMS or site:
 
-    cd cms (or site)
-    mvn cargo:redeploy (or cargo:undeploy, or cargo:deploy)
+Running with an embedded MySQL database. To create & run environment containing builtin MySQL DB just run:
 
-Automatic Export
-================
+    mvn -Pdocker.run,docker.mysql
 
-Automatic export of repository changes to the filesystem is turned on by default. To control this behavior, log into
-<http://localhost:8080/cms/console> and press the "Enable/Disable Auto Export" button at the top right. To set this
-as the default for your project edit the file
-./repository-data/application/src/main/resources/configuration/modules/autoexport-module.xml
+As a result, default db credentials will be used (admin/admin) and DB name will be the same as project's artifactId (e.g. myproject)
 
-Monitoring with JMX Console
-===========================
-You may run the following command:
+Running with an embedded PostgreSQL database. To create & run environment containing builtin PostgreSQL DB just run:
 
-    jconsole
+    mvn -Pdocker.run,docker.postgres
 
-Now open the local process org.apache.catalina.startup.Bootstrap start
+As a result, default db credentials will be used (admin/admin) and DB name will be the same as project's artifactId (e.g. myproject)
+
+To run the image with an external mysql database, add the provided database name, username and password below to the properties
+section of your project's pom.xml:
+
+    <docker.db.host>DATABASE_HOSTNAME</docker.db.host>
+    <docker.db.port>DATABASE_PORT</docker.db.port>
+    <docker.db.schema>DATABASE_NAME</docker.db.schema>
+    <docker.db.username>DATABASE_USERNAME</docker.db.username>
+    <docker.db.password>DATABASE_PASSWORD</docker.db.password>
+
+Then run:
+
+    mvn -Pdocker.run,mysql
+
+To run the image with an external postgresql database, add the same db properties as above, then run:
+
+    mvn -Pdocker.run,postgres
+
+After running the docker image, application logs will be shown on the terminal window.

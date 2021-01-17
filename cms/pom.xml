@@ -5,14 +5,19 @@
   <parent>
     <groupId>com.github.woonsanko</groupId>
     <artifactId>hippo-davstore-demo</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.4.0-SNAPSHOT</version>
   </parent>
   <artifactId>hippo-davstore-demo-cms</artifactId>
   <packaging>war</packaging>
   <name>Hippo DAV VFS DataStore Demo Project CMS</name>
   <description>Hippo DAV VFS DataStore Demo Project CMS</description>
-
   <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>hippo-davstore-demo-cms-dependencies</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
 
     <!-- Adding jackrabbit-vfs-ext -->
     <dependency>
@@ -90,55 +95,6 @@
       <version>${forge.hipporepojcrdav.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-      <artifactId>hst-repository-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-      <artifactId>hst-cms-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-package-cms-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-channel-manager-frontend</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-channel-manager-repository</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.github.woonsanko</groupId>
-      <artifactId>hippo-davstore-demo-repository-data-application</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.github.woonsanko</groupId>
-      <artifactId>hippo-davstore-demo-repository-data-webfiles</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-plugin-gallerypicker</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-plugin-resourcebundle-editor</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-plugin-selections-addon-cms</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-plugin-selections-addon-repository</artifactId>
-    </dependency>
   </dependencies>
   <build>
     <finalName>cms</finalName>
@@ -148,7 +104,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
+              <BloomReach-Release-Version>${hippo.release.version}</BloomReach-Release-Version>
               <Project-Version>${project.version}</Project-Version>
               <Project-Build>${buildNumber}</Project-Build>
             </manifestEntries>

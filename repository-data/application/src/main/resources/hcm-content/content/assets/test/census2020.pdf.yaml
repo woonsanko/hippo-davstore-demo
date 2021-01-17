@@ -1,0 +1,17 @@
+/content/assets/test/census2020.pdf:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 05c42040-6c5a-44ae-a565-e2d4509568a6
+  /census2020.pdf:
+    jcr:primaryType: hippogallery:exampleAssetSet
+    hippo:availability: [live, preview]
+    /hippogallery:asset:
+      jcr:primaryType: hippo:resource
+      hippo:text:
+        type: binary
+        resource: /content/assets/test/census2020.pdf/census2020.pdf/asset/census2020.pdf
+      jcr:data:
+        type: binary
+        resource: /content/assets/test/census2020.pdf/census2020.pdf/asset/census2020-1.pdf
+      jcr:lastModified: 2021-01-16T22:34:37.575-05:00
+      jcr:mimeType: application/pdf

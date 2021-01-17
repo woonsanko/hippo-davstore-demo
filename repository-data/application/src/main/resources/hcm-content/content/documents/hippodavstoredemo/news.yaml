@@ -1,23 +1,23 @@
 /content/documents/hippodavstoredemo/news:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: f58943ec-2879-49f0-81f6-d019636a7e30
+  jcr:uuid: a39a1798-0e0c-499a-8df6-4192937fc600
   hippostd:foldertype: [new-news-document, new-news-folder]
-  hippotranslation:id: cca0dd0d-3d8b-4f0a-8423-84a536069568
+  hippotranslation:id: 381f19f8-589a-4815-a1b7-021904f87588
   hippotranslation:locale: en
-  /2018:
+  /2021:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-    jcr:uuid: 7f06f5bb-2fa8-4741-811c-3f1113c997cd
+    jcr:uuid: 99a594d2-74ad-4174-9f59-590cd2126633
     hippostd:foldertype: [new-news-document, new-news-folder]
-    hippotranslation:id: c3ec8693-810c-47d2-8bb6-9ecebb9c1a4a
+    hippotranslation:id: 8ab06564-1805-4e98-8077-e27e9005a5cc
     hippotranslation:locale: en
-    /08:
+    /01:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: e28b8ccd-aa61-43cb-927b-e7907bffe2ce
+      jcr:uuid: 7a87a18e-ff1f-42b4-ae50-8b8af1d26a24
       hippostd:foldertype: [new-news-document, new-news-folder]
-      hippotranslation:id: ad1bef70-a6eb-4363-b29f-350ffe6da58c
+      hippotranslation:id: 20d66d5f-efcf-461a-8ba0-c708d942bafd
       hippotranslation:locale: en
       /the-medusa-news:
         jcr:primaryType: hippo:handle
@@ -27,10 +27,10 @@
         /the-medusa-news:
           jcr:primaryType: hippodavstoredemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2f01dd60-fa86-4807-8cce-98e086d64c07
+          jcr:uuid: a703a5f6-eafe-49b3-b815-8a20ee1c2d59
           hippo:availability: [live, preview]
           hippodavstoredemo:author: Alfred Anonymous
-          hippodavstoredemo:date: 2018-08-07T10:40:00-04:00
+          hippodavstoredemo:date: 2021-01-16T20:30:00-05:00
           hippodavstoredemo:documenttype: news
           hippodavstoredemo:introduction: Lorem ipsum dolor sit amet, consectetur
             adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -49,7 +49,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T13:04:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T13:04:00+01:00
-          hippotranslation:id: 9db6b950-a4c5-4ba6-acef-60a5aa33cc8e
+          hippotranslation:id: 92caae2b-1291-4a9a-88f6-0c87cafc452d
           hippotranslation:locale: en
           /hippodavstoredemo:content:
             jcr:primaryType: hippostd:html
@@ -94,10 +94,10 @@
         /2013-harvest:
           jcr:primaryType: hippodavstoredemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 6c406c09-6067-44af-bf9f-f2328152f25f
+          jcr:uuid: e081e483-be25-446e-afc3-e8b172a3fa96
           hippo:availability: [live, preview]
           hippodavstoredemo:author: Alfred Anonymous
-          hippodavstoredemo:date: 2018-08-07T10:40:00-04:00
+          hippodavstoredemo:date: 2021-01-16T20:30:00-05:00
           hippodavstoredemo:documenttype: news
           hippodavstoredemo:introduction: Lorem ipsum dolor sit amet, consectetur
             adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -116,7 +116,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T14:31:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T14:31:00+01:00
-          hippotranslation:id: 761b9e0a-2519-4812-8d18-a22fc3d36e0b
+          hippotranslation:id: 89b80b86-8962-45b0-81f3-c2734553aeee
           hippotranslation:locale: en
           /hippodavstoredemo:content:
             jcr:primaryType: hippostd:html
@@ -161,10 +161,10 @@
         /the-gastropoda-news:
           jcr:primaryType: hippodavstoredemo:newsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: db0162c8-f32b-4a58-8776-1f79e1b0afd2
+          jcr:uuid: 07f33a96-ebde-43e3-aef1-c476ef375ae4
           hippo:availability: [live, preview]
           hippodavstoredemo:author: Alfred Anonymous
-          hippodavstoredemo:date: 2018-08-07T10:40:00-04:00
+          hippodavstoredemo:date: 2021-01-16T20:30:00-05:00
           hippodavstoredemo:documenttype: news
           hippodavstoredemo:introduction: Lorem ipsum dolor sit amet, consectetur
             adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -183,7 +183,7 @@
           hippostdpubwf:lastModificationDate: 2013-11-12T12:52:00+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippostdpubwf:publicationDate: 2013-11-12T12:52:00+01:00
-          hippotranslation:id: 60308c41-c27a-41fe-abab-a7b439b7e2ca
+          hippotranslation:id: fbfd8bc5-69a2-4d9d-8da6-19fc2f37e424
           hippotranslation:locale: en
           /hippodavstoredemo:content:
             jcr:primaryType: hippostd:html

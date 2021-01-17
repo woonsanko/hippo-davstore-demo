@@ -3,19 +3,20 @@ definitions:
     /hippo:namespaces/hippodavstoredemo/eventsdocument:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 67993b28-522b-4a85-a900-d5c40dcba496
+      jcr:uuid: cb15a7eb-6838-4139-9e82-242617ed3a33
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: ee7991db-bbb3-499b-a842-997339a09b2c
+        jcr:uuid: ed7a40d8-2eca-4c08-aa1b-5a15e7a93186
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: e15408c9-42a3-4766-a2fe-121249d0384e
+          jcr:uuid: ec9b66be-5199-4888-b3db-7849b94b393b
           hipposysedit:node: true
           hipposysedit:supertype: ['hippodavstoredemo:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
-          hipposysedit:uri: http://www.onehippo.org/hippodavstoredemo/nt/1.0
+          hipposysedit:uri: http://www.hippodavstoredemo.com/hippodavstoredemo/nt/1.0
+          hipposysedit:validators: ['hippodavstoredemo:events-sequential-dates']
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -77,7 +78,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: hippodavstoredemo:eventsdocument
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 43534081-a22b-4c40-bfc2-4a745b0c0e47
+          jcr:uuid: f23d3fa6-f161-4aad-b8d6-7c0ba066032c
           hippo:related___pathreference: []
           hippodavstoredemo:date: 0001-01-01T13:00:00+01:00
           hippodavstoredemo:documenttype: event

@@ -1,7 +1,7 @@
 /content/gallery/hippodavstoredemo/samples:
   jcr:primaryType: hippogallery:stdImageGallery
   jcr:mixinTypes: ['mix:referenceable']
-  jcr:uuid: 652b750f-89e8-481f-8818-11b29a818c11
+  jcr:uuid: c691ce24-0316-48f4-9093-3ff73e316129
   hippostd:foldertype: [new-image-folder]
   hippostd:gallerytype: ['hippogallery:imageset']
   /blue-199261_150.jpg:
@@ -11,7 +11,7 @@
     /blue-199261_150.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 31367d36-d244-471c-9434-0d2ba1c1f218
+      jcr:uuid: 3b8a1dc0-9ebe-4fb6-871c-a4eafe997a26
       hippo:availability: [live, preview]
       hippogallery:description: Description for blue-199261_150.jpg
       hippogallery:filename: blue-199261_150.jpg
@@ -40,7 +40,7 @@
     /coffee-206142_150.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 60bfb3e0-ef73-4f01-b205-24d7d4158708
+      jcr:uuid: c4bb89db-895e-4b7b-9e3e-7b22fca36d4b
       hippo:availability: [live, preview]
       hippogallery:description: Description for coffee-206142_150.jpg
       hippogallery:filename: coffee-206142_150.jpg
@@ -69,7 +69,7 @@
     /pencils-199883_150.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 0c50d337-d661-4177-9f2f-556eff690273
+      jcr:uuid: aff6b58f-d951-4db0-908c-dc7c95c8f7ad
       hippo:availability: [live, preview]
       hippogallery:description: Description for pencils-199883_150.jpg
       hippogallery:filename: pencils-199883_150.jpg
@@ -98,7 +98,7 @@
     /viognier-grapes-188185_640.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 622f8d08-561a-4c04-9f58-d7b0023cf35a
+      jcr:uuid: 45675300-9602-4392-842f-d04ba902f709
       hippo:availability: [live, preview]
       hippogallery:description: Description for viognier-grapes-188185_640.jpg
       hippogallery:filename: viognier-grapes-188185_640.jpg
@@ -127,7 +127,7 @@
     /animal-2883_640.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 59711842-3764-4443-a074-a5e17059c6fa
+      jcr:uuid: 91afa273-e40c-48fe-9d75-c6c88c83f886
       hippo:availability: [live, preview]
       hippogallery:description: Description for animal-2883_640.jpg
       hippogallery:filename: animal-2883_640.jpg
@@ -156,7 +156,7 @@
     /snail-193611_640.jpg:
       jcr:primaryType: hippogallery:imageset
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: e562e8ad-215a-4b28-85e4-6e4bf6f5239d
+      jcr:uuid: 7fe31eaf-446c-44c5-aeaf-933f0afca122
       hippo:availability: [live, preview]
       hippogallery:description: Description for snail-193611_640.jpg
       hippogallery:filename: snail-193611_640.jpg
@@ -177,4 +177,31 @@
           type: binary
           resource: /content/gallery/hippodavstoredemo/samples/snail-193611_640.jpg/snail-193611_640_original.jpg
         jcr:lastModified: 2013-11-12T12:13:00+01:00
+        jcr:mimeType: image/jpeg
+  /celebrate.jpg:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: f0b70e4e-766e-4b39-9441-2660ce02aff5
+    /celebrate.jpg:
+      jcr:primaryType: hippogallery:imageset
+      hippo:availability: [live, preview]
+      hippogallery:filename: celebrate.jpg
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: celebrate.jpg
+        hippogallery:height: 45
+        hippogallery:width: 60
+        jcr:data:
+          type: binary
+          resource: /content/gallery/hippodavstoredemo/samples/celebrate.jpg/celebrate_thumbnail.jpg
+        jcr:lastModified: 2021-01-16T22:31:43.210-05:00
+        jcr:mimeType: image/jpeg
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 768
+        hippogallery:width: 1024
+        jcr:data:
+          type: binary
+          resource: /content/gallery/hippodavstoredemo/samples/celebrate.jpg/celebrate_original.jpg
+        jcr:lastModified: 2021-01-16T22:31:43.210-05:00
         jcr:mimeType: image/jpeg

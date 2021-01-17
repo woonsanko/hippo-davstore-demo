@@ -1,0 +1,16 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
+      jcr:primaryType: hst:containeritempackage
+      /eventslist:
+        jcr:primaryType: hst:containeritemcomponent
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsEventsComponent
+        hst:iconpath: images/essentials/catalog-component-icons/events-list.svg
+        hst:label: Event List
+        hst:template: eventslist-main-eventslist
+      /newslist:
+        jcr:primaryType: hst:containeritemcomponent
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsNewsComponent
+        hst:iconpath: images/essentials/catalog-component-icons/news-list.svg
+        hst:label: News List
+        hst:template: newslist-main-newslist
